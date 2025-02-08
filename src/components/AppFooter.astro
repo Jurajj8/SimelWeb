@@ -1,0 +1,46 @@
+---
+import Container from "./Container.astro";
+
+---
+
+<footer class="py-12 bg-gray-900 text-gray-300">
+  <Container>
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/sk_SK/sdk.js#xfbml=1&version=v22.0&appId=274436994821158"></script>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Sídlo -->
+      <div>
+        <h3 class="border-b border-gray-700 text-lg font-bold text-white mb-4">Sídlo</h3>
+        <p class="leading-relaxed">
+          Simel s.r.o.<br>
+          Svrčinovec<br>
+          02312 Svrčinovec<br>
+        </p>
+        <p class="mt-2">
+          GPS súradnice:<br>
+          48°17'3.8123405"N<br>
+          17°43'0.7846069"E
+        </p>
+      </div>
+      <!-- Kontakty -->
+      <div>
+        <h3 class="border-b border-gray-700 text-lg font-bold text-white mb-4">Kontakty</h3>
+        <p class="leading-relaxed">
+          Jakub Šimčisko:<br>
+          <a href="tel:+421912123123" class="text-gray-300 hover:text-white">0912 123 123</a>
+        </p>
+        <p class="mt-2">
+          E-mail:<br>
+          <a href="mailto:email@email.com" class="text-gray-300 hover:text-white">email@email.com</a>
+        </p>
+      </div>
+      <!-- Facebook -->
+      <div>
+        <h3 class="border-b border-gray-700 text-lg font-bold text-white mb-4">Facebook</h3>
+        <div class=" gap-4">
+          <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-width="300" data-height="100" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</footer>

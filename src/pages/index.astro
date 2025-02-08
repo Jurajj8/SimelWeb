@@ -1,0 +1,23 @@
+---
+import Stats from '../components/Stats.astro';
+import Features from '../components/Features.astro';
+import HeroSection from '../components/HeroSection.astro';
+import Layout from '../layouts/Layout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Contact from '../components/Contact.astro';
+import AboutUs from '../components/AboutUs.astro';
+---
+
+<Layout title="Welcome to Astrolus.">
+	<main class="space-y-40 mb-40">
+		<HeroSection/>
+		<AboutUs />
+		<Features/>
+		<Stats/>
+		<!-- <Testimonials/> -->
+		<CallToAction/>
+		
+		<!-- <Blog/> -->
+		<!-- <Contact/> -->
+	</main>
+</Layout>
