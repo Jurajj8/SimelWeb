@@ -2,7 +2,10 @@
 import { AstroFont } from 'astro-font';
 import AppFooter from "../components/AppFooter.astro";
 import AppHeader from "../components/AppHeader.astro";
-import "./../tailus.css"
+import HeroSection from "../components/HeroSection.astro";
+import "./../tailus.css";
+
+import gsap from "gsap";
 
 ---
 
@@ -14,7 +17,13 @@ import "./../tailus.css"
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content="Simel s.r.o. | elektrikárska firma pre EU" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" async></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" async></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+
         <title>Simel s.r.o.</title>
 
         <AstroFont
@@ -35,5 +44,43 @@ import "./../tailus.css"
         <AppHeader />
         <slot />
         <AppFooter />
+        <script>
+            import AOS from "aos";
+            
+            document.addEventListener("DOMContentLoaded", function () {
+              if (window.gsap) {
+                gsap.to('body', { opacity: 1, duration: 1 });
+  
+                // ✅ Animácia celej Hero sekcie
+                gsap.from('#home', { opacity: 0, y: 30, duration: 1 });
+  
+                // ✅ Animácia prvkov v Hero sekcii (postupne)
+                gsap.from('#home h1', { y: 40, opacity: 0, duration: 1, delay: 0.3 });
+                gsap.from('#home p', { y: 40, opacity: 0, duration: 1, delay: 0.5 });
+  
+                // ✅ Animácia tlačidiel
+                gsap.from('#home a', { y: 40, opacity: 0, duration: 1, delay: 0.7, stagger: 0.2 });
+  
+      //           // ✅ Animácia textových blokov (efektívne riešenia, skúsenosti)
+      //           gsap.from('#home div.text-center', { y: 40, opacity: 0, duration: 1, delay: 0.9, stagger: 0.2 });
+  
+      //           // ✅ Animácia pozadia
+      //           gsap.from('#home div[aria-hidden="true"]', { opacity: 0, scale: 1.1, duration: 1.5, delay: 0.2 });
+
+      // // ✅ Animácia ikon vo výhodách (ak máš ikony nad textami)
+      // gsap.from('#home div.relative', { y: 20, opacity: 0, duration: 1, delay: 1, stagger: 0.2 });
+
+              } else {
+                console.error("GSAP nenájdený!");
+              }
+
+              AOS.init({
+                duration: 800, // Trvanie animácie v ms
+                easing: "ease-in-out",
+                once: false, // Animácia sa zopakuje pri každom skrolovaní
+              });
+
+            });
+          </script>
     </body>
 </html>

@@ -1,24 +1,24 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
 export default defineConfig({
-  base: '/',
-  output : "static",
+  base: '/', // ✅ Správna relatívna cesta pre hosting
+  output: "static", // ✅ Vynúti statický výstup
 
   vite: {
     plugins: [tailwindcss()],
     build: {
       rollupOptions: {
         output: {
-          assetFileNames: (assetInfo) => {
-            if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-              return 'style.css'; // Vynúti názov style.css pre CSS
-            }
-            return '_astro/[name]-[hash][extname]';
-          },
+          assetFileNames: "resources/[name]-[hash][extname]", // ✅ CSS & JS do `resources/`
+          entryFileNames: "resources/[name]-[hash].js",
         },
       },
     },
+  },
+
+  build: {
+    format: "directory", // ✅ Dôležité! Vynúti generovanie `index.html`
+    ssr: false, // 🔥 Zakáže generovanie SSR súborov
   }
 });

@@ -1,5 +1,5 @@
 ---
-import Container from "./Container.astro"
+import Container from "./Container.astro";
 ---
 
 <div class="relative" id="home">
@@ -10,63 +10,92 @@ import Container from "./Container.astro"
     <Container>
         <div class="relative pt-54 ml-auto">
             <div class="lg:w-2/3 text-center mx-auto">
-                <h1 class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">Pripájame svet <span class="text-primary dark:text-white">k vašim predstavám.</span></h1>
-                <p class="mt-8 text-gray-700 dark:text-gray-300">Špecializujeme sa na moderné a bezpečné elektroinštalácie, ktoré spĺňajú najvyššie štandardy kvality – na Slovensku aj v zahraničí.</p>
+                <h1 class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">
+                    <span id="typing-text" class="text-primary dark:text-white"></span>
+                    <br>
+                    <span id="sub-text">k vašim predstavám.</span>
+                </h1>
+                <p class="mt-8 text-gray-700 dark:text-gray-300">
+                    Špecializujeme sa na moderné a bezpečné elektroinštalácie, ktoré spĺňajú najvyššie štandardy kvality – na Slovensku aj v zahraničí.
+                </p>
                 <div class="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
-                    <a
-                      href="#callToAction"
-                      class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+                  <a
+                    href="#callToAction"
+                    class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+                  >
+                    <span class="relative text-base font-semibold text-white"
+                      >Začať spoluprácu
+                      </span
                     >
-                      <span class="relative text-base font-semibold text-white"
-                        >Začať spoluprácu
-                        </span
-                      >
-                    </a>
-                    <a
-                      href="#aboutus"
-                      class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+                  </a>
+                  <a
+                    href="#aboutus"
+                    class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+                  >
+                    <span
+                      class="relative text-base font-semibold text-primary dark:text-white"
+                      >Viac o nás</span
                     >
-                      <span
-                        class="relative text-base font-semibold text-primary dark:text-white"
-                        >Viac o nás</span
-                      >
-                    </a>
+                  </a>
+              </div>
+              <div class="hidden py-8 mt-16 sm:flex justify-between gap-6">
+                <div class="relative p-6 rounded-lg bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-800 dark:to-gray-900 shadow-lg transition duration-300 hover:scale-105 text-center">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center shadow-md">
+                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15 8h6l-4.5 5 1.5 7-6-4-6 4 1.5-7L3 8h6z"/>
+                        </svg>
+                    </div>
+                    <h6 class="text-lg font-semibold text-gray-700 dark:text-white mt-4">Efektívne riešenia</h6>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Riešenia šité presne pre vás</p>
                 </div>
-                <div class="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between">
-                    <div class="text-left">
-                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white">Efektívne riešenia</h6>
-                        <p class="mt-2 text-gray-500">Riešenia šité presne pre vás</p>
+            
+                <div class="relative p-6 rounded-lg bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-800 dark:to-gray-900 shadow-lg transition duration-300 hover:scale-105 text-center">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center shadow-md">
+                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15 8h6l-4.5 5 1.5 7-6-4-6 4 1.5-7L3 8h6z"/>
+                        </svg>
                     </div>
-                    <div class="text-left">
-                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white">Rýchla a kvalitná realizácia</h6>
-                        <p class="mt-2 text-gray-500">Dokončenie bez zbytočných omeškaní</p>
+                    <h6 class="text-lg font-semibold text-gray-700 dark:text-white mt-4">Rýchla a kvalitná realizácia</h6>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Dokončenie bez zbytočných omeškaní</p>
+                </div>
+            
+                <div class="relative p-6 rounded-lg bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-800 dark:to-gray-900 shadow-lg transition duration-300 hover:scale-105 text-center">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15 8h6l-4.5 5 1.5 7-6-4-6 4 1.5-7L3 8h6z"/>
+                        </svg>
                     </div>
-                    <div class="text-left">
-                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white">Medzinárodné skúsenosti</h6>
-                        <p class="mt-2 text-gray-500">Spolupráca na globálnej úrovni</p>
-                    </div>
+                    <h6 class="text-lg font-semibold text-gray-700 dark:text-white mt-4">Medzinárodné skúsenosti</h6>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Spolupráca na globálnej úrovni</p>
                 </div>
             </div>
-            <!-- <div class="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
-                <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/clients/microsoft.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-                  </div>
-                <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                  <img src="./images/clients/airbnb.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-                </div>
-                <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                  <img src="./images/clients/google.svg" class="h-9 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
-                </div>
-                <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/clients/ge.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-                  </div>
-                  <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/clients/netflix.svg" class="h-8 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
-                  </div>
-                <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/clients/google-cloud.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-                </div>
-              </div> -->
+            
+          </div>
+            </div>
         </div>
     </Container>
 </div>
+
+<!-- **💡 Astro riešenie bez onMount – Script blok na konci súboru** -->
+<script>
+import Typed from "typed.js";
+import gsap from "gsap";
+
+  document.addEventListener("DOMContentLoaded", function () {
+      const typed = new Typed("#typing-text", {
+          strings: [
+              "Pripájame svet",
+              "Inovujeme budúcnosť",
+              "Spájame technológie"
+          ],
+          typeSpeed: 80,
+          backSpeed: 40,
+          startDelay: 500,
+          backDelay: 1500,
+          loop: true,
+          showCursor: false
+      });
+  
+      gsap.from("#sub-text", { opacity: 0, y: 10, duration: 1, delay: 1 });
+  });
+</script>
