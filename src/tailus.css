@@ -5,3 +5,8 @@
     --color-secondary : var(--color-orange-600);
     --color-info : var(--color-blue-600);
 }
+
+html {
+  background-color: black !important;
+  color: white;
+}
