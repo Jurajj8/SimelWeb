@@ -3,23 +3,7 @@ import Container from "./Container.astro";
 
 const links = [
     {
-        to: "/#home",
-        label: "Úvod",
-    },
-    {
-        to: "/#aboutus",
-        label: "O nás",
-    },
-    {
-        to: "/#features",
-        label: "Služby",
-    },
-    {
-        to: "/#solution",
-        label: "Prečo my?",
-    },
-    {
-        to: "/#",
+        to: "/gallery",
         label: "Galéria",
     },
 ];
@@ -30,8 +14,8 @@ const links = [
         <Container>
             <div class="relative flex flex-wrap items-center justify-between gap-6 py-3 md:gap-0 md:py-4">
                 <div class="relative z-20 flex w-full justify-between md:px-0 lg:w-fit">
-                    <a href="/#home" aria-label="logo" class="flex items-center space-x-2">
-                        <img src="2.png" alt="Simel s.r.o. logo" class="h-20 w-auto">
+                    <a href="/" aria-label="logo" class="flex items-center space-x-2">
+                        <img src="/2.png" alt="Simel s.r.o. logo" class="h-20 w-auto">
                         <!-- <span class="text-2xl font-bold text-gray-900 dark:text-white">Simel s.r.o.</span> -->
                     </a>
 
@@ -57,7 +41,7 @@ const links = [
                     </div>
 
                     <div class="mt-12 lg:mt-0">
-                        <a href="/#callToAction" class="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+                        <a href="/contact" class="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
                             <span class="relative text-sm font-semibold text-white"> Kontaktovať</span>
                         </a>
                     </div>
@@ -94,9 +78,9 @@ const links = [
     });
     window.addEventListener("scroll", () => {
   if (window.scrollY > 0) {
-    navbar.classList.add("dark:bg-gray-900");
+    navbar.classList.add("bg-gray-900");
   } else {
-    navbar.classList.remove("dark:bg-gray-900");
+    navbar.classList.remove("bg-gray-900");
   }
 });
 </script>

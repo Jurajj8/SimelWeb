@@ -4,13 +4,17 @@ import Features from '../components/Features.astro';
 import HeroSection from '../components/HeroSection.astro';
 import Layout from '../layouts/Layout.astro';
 import CallToAction from '../components/CallToAction.astro';
-import Contact from '../components/Contact.astro';
 import AboutUs from '../components/AboutUs.astro';
 ---
 
 <Layout title="Simel s.r.o.">
 	<main class="w-full mb-40">
-		<HeroSection/>
+		<HeroSection 
+		  title="SIMEL s.r.o."
+		  subtitle="Spoľahlivé elektroinštalácie a moderné technológie"
+		  description=" Vitajte na stránke SIMEL s.r.o., vášho partnera pre kvalitné elektroinštalácie a elektronické riešenia. Ponúkame odborné služby pre domácnosti, firmy aj priemyselné objekty – od návrhu a montáže až po údržbu a servis."
+		  showButtons={true} 
+		/>
 		<AboutUs />
 		<Features/>
 		<Stats/>

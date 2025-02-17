@@ -1,0 +1,86 @@
+---
+import Container from "./Container.astro";
+
+const images = [
+  "/M1.jpg",
+  "/M2.jpg"
+];
+---
+
+<Container>
+  <section id="gallery" class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-white mb-12">Galéria</h2>
+
+      <!-- Galéria Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {images.map((image) => (
+          <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+            <img
+              src={image}
+              alt="Galéria obrázok"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              data-src={image} 
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center hidden z-50">
+    <div class="relative max-w-3xl">
+      <button id="close-lightbox" class="absolute top-2 right-2 text-white text-3xl">&times;</button>
+      <img id="lightbox-img" src="" alt="Preview" class="max-w-full max-h-[90vh] rounded-lg shadow-lg" />
+    </div>
+  </div>
+
+  <script>
+    // Otvorenie lightboxu
+    function openLightbox(src) {
+      const img = document.getElementById("lightbox-img");
+      const lightbox = document.getElementById("lightbox");
+
+      if (img instanceof HTMLImageElement && lightbox) {
+        img.src = src;
+        lightbox.classList.remove("hidden");
+      }
+    }
+
+    // Zavretie lightboxu
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      if (lightbox) {
+        lightbox.classList.add("hidden");
+      }
+    }
+
+    // Pridanie event listenerov na obrázky
+    document.querySelectorAll("#gallery img").forEach((img) => {
+      img.addEventListener("click", (event) => {
+        const target = event.currentTarget;
+        if (target instanceof HTMLImageElement) {
+          openLightbox(target.dataset.src);
+        }
+      });
+    });
+
+    // Pridanie event listenera na zavretie
+    document.getElementById("close-lightbox").addEventListener("click", closeLightbox);
+
+    // Zavretie kliknutím mimo obrázka
+    document.getElementById("lightbox").addEventListener("click", (event) => {
+      if (event.target === document.getElementById("lightbox")) {
+        closeLightbox();
+      }
+    });
+
+    // Zavretie ESC klávesou
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  </script>
+</Container>

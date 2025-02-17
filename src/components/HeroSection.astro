@@ -1,5 +1,12 @@
 ---
 import Container from "./Container.astro";
+
+const {
+  title = "SIMEL s.r.o.",
+  subtitle = "Spoľahlivé elektroinštalácie a moderné technológie",
+  description = "Vitajte na stránke SIMEL s.r.o., vášho partnera pre kvalitné elektroinštalácie a elektronické riešenia. Ponúkame odborné služby pre domácnosti, firmy aj priemyselné objekty – od návrhu a montáže až po údržbu a servis.",
+  showButtons = true, // Možnosť skryť/zobraziť tlačidlá
+} = Astro.props;
 ---
 
 <div class="relative overflow-hidden" id="home">
@@ -13,90 +20,34 @@ import Container from "./Container.astro";
         <div class="relative flex flex-col items-center text-center h-screen justify-center">
             <!-- Nadpis -->
             <h1 class="text-balance text-white font-extrabold text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-tight tracking-tight">
-                <span class="block">SIMEL s.r.o.</span>
+                <span class="block">{title}</span>
                 <span class="block bg-gradient-to-r from-primary to-purple-500 text-transparent bg-clip-text">
-                    Spoľahlivé elektroinštalácie a moderné technológie
+                    {subtitle}
                 </span>
             </h1>
 
             <!-- Podnadpis -->
             <p class="mt-6 max-w-3xl text-gray-300 text-lg md:text-xl">
-                Vitajte na stránke SIMEL s.r.o., vášho partnera pre kvalitné elektroinštalácie a elektronické riešenia. Ponúkame odborné služby pre domácnosti, firmy aj priemyselné objekty – od návrhu a montáže až po údržbu a servis.
+                {description}
             </p>
 
-            <!-- CTA tlačidlá -->
-            <div class="mt-10 flex flex-wrap justify-center gap-6">
-                <a
-                    href="#callToAction"
-                    class="relative flex h-12 w-max items-center justify-center px-8 font-medium text-lg rounded-full bg-primary text-white transition-transform transform hover:scale-105 shadow-md shadow-primary/50"
-                >
-                    Začať spoluprácu
-                </a>
-                <a
-                    href="#aboutus"
-                    class="relative flex h-12 w-max items-center justify-center px-8 font-medium text-lg rounded-full border border-gray-700 bg-gray-900 text-white transition-transform transform hover:scale-105 shadow-md shadow-gray-800"
-                >
-                    Viac o nás
-                </a>
-              </div>
-              <!-- <div class="hidden py-8 mt-16 sm:flex justify-between gap-6">
-                <div class="relative p-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 shadow-lg transition duration-300 hover:scale-105 text-center">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center shadow-md">
-                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L15 8h6l-4.5 5 1.5 7-6-4-6 4 1.5-7L3 8h6z"/>
-                        </svg>
-                    </div>
-                    <h6 class="text-lg font-semibold text-white mt-4">Efektívne riešenia</h6>
-                    <p class="mt-2 text-gray-300">Riešenia šité presne pre vás</p>
+            <!-- ✅ Podmienka pre tlačidlá -->
+            {showButtons && (
+                <div class="mt-10 flex flex-wrap justify-center gap-6">
+                    <a
+                        href="/contact"
+                        class="relative flex h-12 w-max items-center justify-center px-8 font-medium text-lg rounded-full bg-primary text-white transition-transform transform hover:scale-105 shadow-md shadow-primary/50"
+                    >
+                        Začať spoluprácu
+                    </a>
+                    <a
+                        href="#aboutus"
+                        class="relative flex h-12 w-max items-center justify-center px-8 font-medium text-lg rounded-full border border-gray-700 bg-gray-900 text-white transition-transform transform hover:scale-105 shadow-md shadow-gray-800"
+                    >
+                        Viac o nás
+                    </a>
                 </div>
-            
-                <div class="relative p-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 shadow-lg transition duration-300 hover:scale-105 text-center">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center shadow-md">
-                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L15 8h6l-4.5 5 1.5 7-6-4-6 4 1.5-7L3 8h6z"/>
-                        </svg>
-                    </div>
-                    <h6 class="text-lg font-semibold text-white mt-4">Rýchla a kvalitná realizácia</h6>
-                    <p class="mt-2 text-gray-300">Dokončenie bez zbytočných omeškaní</p>
-                </div>
-            
-                <div class="relative p-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 shadow-lg transition duration-300 hover:scale-105 text-center">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shadow-md">
-                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L15 8h6l-4.5 5 1.5 7-6-4-6 4 1.5-7L3 8h6z"/>
-                        </svg>
-                    </div>
-                    <h6 class="text-lg font-semibold text-white mt-4">Medzinárodné skúsenosti</h6>
-                    <p class="mt-2 text-gray-300">Spolupráca na globálnej úrovni</p>
-                    </div>
-                </div> -->
-            
-                </div>
-            </div>
+            )}
         </div>
     </Container>
 </div>
-
-<!-- **💡 Astro riešenie bez onMount – Script blok na konci súboru** -->
-<!-- <script>
-import Typed from "typed.js";
-import gsap from "gsap";
-
-  document.addEventListener("DOMContentLoaded", function () {
-      const typed = new Typed("#typing-text", {
-          strings: [
-              "Pripájame svet",
-              "Inovujeme budúcnosť",
-              "Spájame technológie"
-          ],
-          typeSpeed: 80,
-          backSpeed: 40,
-          startDelay: 500,
-          backDelay: 1500,
-          loop: true,
-          showCursor: false
-      });
-  
-      gsap.from("#sub-text", { opacity: 0, y: 10, duration: 1, delay: 1 });
-  });
-</script> -->

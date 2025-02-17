@@ -7,6 +7,7 @@ import "./../tailus.css";
 
 import gsap from "gsap";
 
+const siteUrl = "https://simel-group.sk";
 ---
 
 <!DOCTYPE html>
@@ -14,8 +15,9 @@ import gsap from "gsap";
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="keywords" content="elektroinštalácie, elektrina, elektromontáže, spoľahlivé elektroinštalácie, Simel, elektrické rozvody, moderné technológie, Slovensko, simel s.r.o." />
+
         <meta name="description" content="Simel s.r.o. | elektrikárska firma pre EU" />
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" async></script>
@@ -24,7 +26,11 @@ import gsap from "gsap";
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
 
-        <title>Simel s.r.o.</title>
+        <title>SIMEL s.r.o. | Úvod</title>
+
+        <link rel="canonical" href={siteUrl} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
 
         <AstroFont
             config={[

@@ -1,0 +1,87 @@
+---
+import Container from "./Container.astro";
+
+const teamMembers = [
+  { name: "Jakub Šimčisko", role: "Zakladateľ & CEO", img: "/images/team1.jpg" },
+  { name: "Peter Novák", role: "Projektový manažér", img: "/images/team2.jpg" },
+  { name: "Marek Kováč", role: "Elektroinžinier", img: "/images/team3.jpg" },
+  { name: "Jana Horáková", role: "Administratíva", img: "/images/team4.jpg" },
+];
+
+const images = [
+  "/images/project1.jpg",
+  "/images/project2.jpg",
+  "/images/project3.jpg",
+  "/images/project4.jpg",
+];
+---
+
+<section id="aboutus" class="relative py-24 scroll-mt-40">
+  <div class="absolute inset-0 flex justify-center items-center opacity-15">
+    <div class="blur-[100px] w-96 h-96 bg-gradient-to-br from-primary to-blue-500 rounded-full"></div>
+  </div>
+
+  <Container>
+    <div class="space-y-16">
+
+      <!-- 🏢 Sekcia: Úvod -->
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="text-4xl font-bold text-white md:text-5xl">O nás</h2>
+        <p class="mt-4 text-gray-300 text-lg leading-relaxed">
+          SIMEL s.r.o. je spoľahlivý partner v oblasti elektroinštalácií a moderných technológií. Naším cieľom je poskytovať inovatívne a bezpečné riešenia pre domácnosti, firmy a priemysel.
+        </p>
+      </div>
+
+      <!-- 🏗️ Sekcia: História & Vízia -->
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div data-aos="fade-right">
+          <h3 class="text-2xl font-semibold text-blue-400">História & Vízia</h3>
+          <p class="mt-4 text-gray-300 leading-relaxed">
+            Začali sme s víziou poskytovať elektroinštalačné služby na najvyššej úrovni. Dnes sme spoločnosťou, ktorá neustále inovuje a sleduje najnovšie trendy v oblasti elektrifikácie a smart riešení.
+          </p>
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg" data-aos="fade-left">
+          <img src="/images/history.jpg" alt="História spoločnosti" class="w-full h-auto object-cover">
+        </div>
+      </div>
+
+      <!-- 🔥 Sekcia: Naše hodnoty -->
+      <div class="grid md:grid-cols-3 gap-6 text-center">
+        <div class="p-6 bg-gray-900 rounded-lg shadow-lg" data-aos="fade-up">
+          <h4 class="text-xl font-semibold text-blue-400">Spoľahlivosť</h4>
+          <p class="mt-2 text-gray-300">Každý projekt riešime s dôrazom na kvalitu a zodpovednosť.</p>
+        </div>
+        <div class="p-6 bg-gray-900 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+          <h4 class="text-xl font-semibold text-blue-400">Inovácie</h4>
+          <p class="mt-2 text-gray-300">Sledujeme technologické trendy a aplikujeme ich do našej práce.</p>
+        </div>
+        <div class="p-6 bg-gray-900 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+          <h4 class="text-xl font-semibold text-blue-400">Bezpečnosť</h4>
+          <p class="mt-2 text-gray-300">Dodržiavame všetky bezpečnostné normy pre vaše maximálne pohodlie.</p>
+        </div>
+      </div>
+
+      <!-- ⚡ Sekcia: Prečo si vybrať nás? -->
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-8 rounded-xl shadow-lg text-center" data-aos="fade-up">
+        <h3 class="text-3xl font-semibold">Prečo si vybrať SIMEL?</h3>
+        <p class="mt-4 text-lg leading-relaxed">
+          Máme dlhoročné skúsenosti a odborný tím, ktorý sa postará o všetky vaše elektroinštalačné potreby. Ponúkame moderné riešenia, individuálny prístup a garantujeme vysokú kvalitu služieb.
+        </p>
+      </div>
+
+      <!-- 👥 Sekcia: Tím odborníkov -->
+      <div>
+        <h3 class="text-center text-3xl font-semibold text-white mb-6" data-aos="fade-up">Náš tím</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {teamMembers.map((member) => (
+            <div class="bg-gray-900 p-6 rounded-lg text-center shadow-lg" data-aos="fade-up">
+              <img src={member.img} alt={member.name} class="w-24 h-24 mx-auto rounded-full">
+              <h4 class="text-lg font-semibold text-blue-400 mt-4">{member.name}</h4>
+              <p class="text-gray-300">{member.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
