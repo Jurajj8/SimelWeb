@@ -2,90 +2,102 @@
 import Container from "./Container.astro";
 
 const teamMembers = [
-  { name: "Jakub Šimčisko", role: "Zakladateľ & CEO", img: "/kubec.jpg" },
-  { name: "Peter Novák", role: "Projektový manažér", img: "/images/team2.jpg" },
-  { name: "Marek Kováč", role: "Elektroinžinier", img: "/images/team3.jpg" },
-  { name: "Jana Horáková", role: "Administratíva", img: "/images/team4.jpg" },
-];
-
-const images = [
-  "/images/project1.jpg",
-  "/images/project2.jpg",
-  "/images/project3.jpg",
-  "/images/project4.jpg",
+  {
+    name: "Jakub Šimčisko",
+    role: "Zakladateľ & Konateľ",
+    img: "/M1.jpg",
+    description: "Zodpovedám za riadenie projektov, komunikáciu so zákazníkmi a zabezpečenie kvalitných riešení.",
+    email: "jakub.simcisko@simel.sk",
+    phone: "+421 919 285 912",
+  },
+  {
+    name: "Peter Novák",
+    role: "Projektový manažér",
+    img: "/M2.jpg",
+    description: "Plánujem a riadim projekty, zabezpečujem plynulú realizáciu a dohliadam na kvalitu výsledkov.",
+    email: "peter.novak@simel.sk",
+    phone: "+421 912 345 678",
+  },
+  {
+    name: "Marek Kováč",
+    role: "Elektroinžinier",
+    img: "/M3.jpg",
+    description: "Špecializujem sa na technické riešenia a elektroinštalácie s dôrazom na precíznosť a efektivitu.",
+    email: "marek.kovac@simel.sk",
+    phone: "+421 911 654 321",
+  },
 ];
 ---
 
-<section id="aboutus" class="relative py-24 scroll-mt-40">
-  <div class="absolute inset-0 flex justify-center items-center opacity-15">
-    <div class="blur-[100px] w-96 h-96 bg-gradient-to-br from-primary to-blue-500 rounded-full"></div>
+<section id="aboutus" class="relative py-24 scroll-mt-40 bg-gray-950 text-white pt-40">
+  <!-- Pozadie s efektom -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="blur-[120px] w-96 h-96 bg-gradient-to-br from-blue-600 to-purple-600 opacity-30 rounded-full absolute top-10 left-1/2 transform -translate-x-1/2"></div>
+    <!-- <div class="blur-[120px] w-72 h-72 bg-gradient-to-r from-indigo-500 to-cyan-400 opacity-30 rounded-full absolute bottom-10 right-20"></div> -->
   </div>
 
   <Container>
+    <!-- Úvodná sekcia -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-5xl font-bold mb-4">O nás</h2>
+      <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+        V <b>SIMEL s.r.o.</b> sa špecializujeme na spoľahlivé elektroinštalácie a moderné technologické riešenia. Naším cieľom je poskytovať kvalitné služby pre domácnosti, firmy aj priemyselné objekty – od návrhu a montáže až po servis a údržbu.
+      </p>
+    </div>
+
+    <!-- Hodnoty spoločnosti -->
+    <div class="grid md:grid-cols-3 gap-8 text-center" data-aos="fade-up">
+      <div class="p-6 bg-gray-900 rounded-xl shadow-lg hover:scale-105 transition-transform">
+        <div class="text-4xl text-blue-400 mb-4">⚡</div>
+        <h4 class="text-xl font-semibold mb-2">Spoľahlivosť</h4>
+        <p class="text-gray-400">Každý projekt riešime s dôrazom na kvalitu a zodpovednosť.</p>
+      </div>
+      <div class="p-6 bg-gray-900 rounded-xl shadow-lg hover:scale-105 transition-transform">
+        <div class="text-4xl text-purple-400 mb-4">🚀</div>
+        <h4 class="text-xl font-semibold mb-2">Inovácie</h4>
+        <p class="text-gray-400">Sledujeme technologické trendy a aplikujeme ich do našej práce.</p>
+      </div>
+      <div class="p-6 bg-gray-900 rounded-xl shadow-lg hover:scale-105 transition-transform">
+        <div class="text-4xl text-cyan-400 mb-4">🛡️</div>
+        <h4 class="text-xl font-semibold mb-2">Bezpečnosť</h4>
+        <p class="text-gray-400">Dodržiavame všetky bezpečnostné normy pre vaše maximálne pohodlie.</p>
+      </div>
+    </div>
+
+    <!-- Prečo si vybrať nás? -->
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-10 rounded-xl shadow-xl text-center my-16" data-aos="fade-up">
+      <h3 class="text-3xl font-bold">Prečo si vybrať SIMEL?</h3>
+      <p class="mt-4 text-lg leading-relaxed max-w-2xl mx-auto">
+        Máme dlhoročné skúsenosti a odborný tím, ktorý sa postará o všetky vaše elektroinštalačné potreby. Ponúkame moderné riešenia, individuálny prístup a garantujeme vysokú kvalitu služieb.
+      </p>
+    </div>
+
+    <!-- Sekcia: Tím odborníkov -->
+    <h2 class="text-5xl font-bold text-center mb-16" data-aos="fade-up">Náš tím</h2>
+
     <div class="space-y-16">
+      {teamMembers.map((member) => (
+        <div
+          class={`flex flex-col md:flex-row  items-center bg-gray-900 p-6 rounded-xl shadow-lg`}
+          data-aos="fade-up"
+        >
+          <!-- Obrázok člena tímu -->
+          <img src={member.img} alt={member.name} class="w-48 h-48 rounded-full shadow-md object-cover mx-6" />
 
-      <!-- 🏢 Sekcia: Úvod -->
-      <div class="text-center" data-aos="fade-up">
-        <h2 class="text-4xl font-bold text-white md:text-5xl">O nás</h2>
-        <p class="mt-4 text-gray-300 text-lg leading-relaxed">
-          V <b>SIMEL s.r.o.</b> sa špecializujeme na spoľahlivé elektroinštalácie a moderné technologické riešenia. Naším cieľom je poskytovať kvalitné služby pre domácnosti, firmy aj priemyselné objekty – od návrhu a montáže až po servis a údržbu.
+          <!-- Informácie o členovi -->
+          <div class="mt-6 md:mt-0 md:max-w-xl text-center md:text-left">
+            <h3 class="text-2xl font-semibold text-blue-400">{member.name}</h3>
+            <p class="text-lg text-white">{member.role}</p>
+            <p class="mt-4 text-gray-300">{member.description}</p>
 
-</p><p class="mt-4 text-gray-300 text-lg leading-relaxed">Staviame na profesionalite, precíznosti a bezpečnosti. Každý projekt riešime individuálne a s dôrazom na najnovšie technológie, aby sme zákazníkom ponúkli efektívne a dlhodobo funkčné riešenia.
-
-</p><p class="mt-4 text-gray-300 text-lg leading-relaxed">Neustále sa rozvíjame, aby sme držali krok s najnovšími trendmi v elektroinštaláciách a prinášali vám spoľahlivé, úsporné a inovatívne riešenia. Dôverujte odborníkom – dôverujte SIMEL s.r.o.
-        </p>
-      </div>
-
-      <!-- 🏗️ Sekcia: História & Vízia -->
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div data-aos="fade-right">
-          <h3 class="text-2xl font-semibold text-blue-400">História & Vízia</h3>
-          <p class="mt-4 text-gray-300 leading-relaxed">
-            Začali sme s víziou poskytovať elektroinštalačné služby na najvyššej úrovni. Dnes sme spoločnosťou, ktorá neustále inovuje a sleduje najnovšie trendy v oblasti elektrifikácie a smart riešení.
-          </p>
-        </div>
-        <div class="overflow-hidden rounded-lg shadow-lg" data-aos="fade-left">
-          <img src="/1.png" alt="História spoločnosti" class="w-full h-auto object-cover">
-        </div>
-      </div>
-
-      <!-- 🔥 Sekcia: Naše hodnoty -->
-      <div class="grid md:grid-cols-3 gap-6 text-center">
-        <div class="p-6 bg-gray-900 rounded-lg shadow-lg" data-aos="fade-up">
-          <h4 class="text-xl font-semibold text-blue-400">Spoľahlivosť</h4>
-          <p class="mt-2 text-gray-300">Každý projekt riešime s dôrazom na kvalitu a zodpovednosť.</p>
-        </div>
-        <div class="p-6 bg-gray-900 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-          <h4 class="text-xl font-semibold text-blue-400">Inovácie</h4>
-          <p class="mt-2 text-gray-300">Sledujeme technologické trendy a aplikujeme ich do našej práce.</p>
-        </div>
-        <div class="p-6 bg-gray-900 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
-          <h4 class="text-xl font-semibold text-blue-400">Bezpečnosť</h4>
-          <p class="mt-2 text-gray-300">Dodržiavame všetky bezpečnostné normy pre vaše maximálne pohodlie.</p>
-        </div>
-      </div>
-
-      <!-- ⚡ Sekcia: Prečo si vybrať nás? -->
-      <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-8 rounded-xl shadow-lg text-center" data-aos="fade-up">
-        <h3 class="text-3xl font-semibold">Prečo si vybrať SIMEL?</h3>
-        <p class="mt-4 text-lg leading-relaxed">
-          Máme dlhoročné skúsenosti a odborný tím, ktorý sa postará o všetky vaše elektroinštalačné potreby. Ponúkame moderné riešenia, individuálny prístup a garantujeme vysokú kvalitu služieb.
-        </p>
-      </div>
-
-      <!-- 👥 Sekcia: Tím odborníkov -->
-      <div>
-        <h3 class="text-center text-3xl font-semibold text-white mb-6" data-aos="fade-up">Náš tím</h3>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {teamMembers.map((member) => (
-            <div class="bg-gray-900 p-6 rounded-lg text-center shadow-lg" data-aos="fade-up">
-              <img src={member.img} alt={member.name} class="w-24 h-24 mx-auto rounded-full">
-              <h4 class="text-lg font-semibold text-blue-400 mt-4">{member.name}</h4>
-              <p class="text-gray-300">{member.role}</p>
+            <!-- Kontaktné údaje -->
+            <div class="mt-4 space-y-1 text-gray-400">
+              <p><strong>Email:</strong> <a href={`mailto:${member.email}`} class="text-blue-400 hover:underline">{member.email}</a></p>
+              <p><strong>Telefón:</strong> <a href={`tel:${member.phone}`} class="text-blue-400 hover:underline">{member.phone}</a></p>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   </Container>
 </section>

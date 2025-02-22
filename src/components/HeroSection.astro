@@ -6,7 +6,9 @@ const {
   subtitle = "Spoľahlivé elektroinštalácie a moderné technológie",
   description = "Vitajte na stránke SIMEL s.r.o., vášho partnera pre kvalitné elektroinštalácie a elektronické riešenia. Ponúkame odborné služby pre domácnosti, firmy aj priemyselné objekty – od návrhu a montáže až po údržbu a servis.",
   showButtons = true, // Možnosť skryť/zobraziť tlačidlá
+  customClass = ""
 } = Astro.props;
+
 ---
 
 <div class="relative overflow-hidden" id="home">
@@ -17,7 +19,7 @@ const {
     </div>
 
     <Container>
-        <div class="relative flex flex-col items-center text-center h-screen justify-center">
+        <div class={`relative flex flex-col items-center text-center justify-center ${customClass}`}>
             <!-- Nadpis -->
             <h1 class="text-balance text-white font-extrabold text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-tight tracking-tight">
                 <span class="block">{title}</span>
