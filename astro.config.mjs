@@ -1,9 +1,12 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
+  site: "https://simel-group.sk",
   base: '/', // ✅ Správna relatívna cesta pre hosting
   output: "static", // ✅ Vynúti statický výstup
+  integrations: [sitemap()],
 
   vite: {
     plugins: [tailwindcss()],
