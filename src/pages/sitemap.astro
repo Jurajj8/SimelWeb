@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+
+const pages = [
+  { url: "/sk/", priority: 1.0 },
+  { url: "/sk/aboutUs/", priority: 0.9 },
+  { url: "/sk/contact/", priority: 0.8 },
+  { url: "/en/", priority: 1.0 },
+  { url: "/en/aboutUs/", priority: 0.9 },
+  { url: "/en/contact/", priority: 0.8 },
+  { url: "/de/", priority: 1.0 },
+  { url: "/de/aboutUs/", priority: 0.9 },
+  { url: "/de/contact/", priority: 0.8 },
+];
+
+const site = "https://simel-group.sk";
+---
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {pages.map(page => (
+    <url>
+      <loc>{site}{page.url}</loc>
+      <priority>{page.priority}</priority>
+    </url>
+  ))}
+</urlset>

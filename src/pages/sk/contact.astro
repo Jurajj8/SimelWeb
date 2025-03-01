@@ -1,0 +1,15 @@
+---
+import HeroSection from '../../components/HeroSection.astro';
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/ContactSection.astro';
+---
+
+<Layout title="Simel s.r.o. |Contact">
+	<main class="w-full mb-40">
+		<HeroSection
+		    showButtons={false}
+			customClass="py-20 h-[75vh]"
+		/>
+        <ContactSection />
+	</main>
+</Layout>

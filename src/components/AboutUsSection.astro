@@ -1,99 +1,123 @@
 ---
 import Container from "./Container.astro";
+import { translations } from "../locales.ts";
 
-const teamMembers = [
-  {
-    name: "Jakub Šimčisko",
-    role: "Zakladateľ & Konateľ",
-    img: "/M1.jpg",
-    description: "Zodpovedám za riadenie projektov, komunikáciu so zákazníkmi a zabezpečenie kvalitných riešení.",
-    email: "jakub.simcisko@simel.sk",
-    phone: "+421 919 285 912",
-  },
-  {
-    name: "Peter Novák",
-    role: "Projektový manažér",
-    img: "/M2.jpg",
-    description: "Plánujem a riadim projekty, zabezpečujem plynulú realizáciu a dohliadam na kvalitu výsledkov.",
-    email: "peter.novak@simel.sk",
-    phone: "+421 912 345 678",
-  },
-  {
-    name: "Marek Kováč",
-    role: "Elektroinžinier",
-    img: "/M3.jpg",
-    description: "Špecializujem sa na technické riešenia a elektroinštalácie s dôrazom na precíznosť a efektivitu.",
-    email: "marek.kovac@simel.sk",
-    phone: "+421 911 654 321",
-  },
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'sk';
+const t = translations[currentLang] || translations.sk;
+
+const createLocalizedPath = (path) => `/${currentLang}${path === "/" ? "" : path}`;
+
+const languages = [
+  { code: "sk", label: "Slovensky" },
+  { code: "en", label: "English" },
+  { code: "de", label: "Deutsch" }
 ];
+
+const languageLinks = languages.map(lang => ({
+  code: lang.code,
+  label: lang.label,
+  url: currentPath.replace(`/${currentLang}`, `/${lang.code}`)
+}));
+
 ---
 
 <section id="aboutus" class="relative py-24 scroll-mt-40 bg-gray-950 text-white pt-40">
-  <!-- Pozadie s efektom -->
   <div class="absolute inset-0 overflow-hidden">
     <div class="blur-[120px] w-96 h-96 bg-gradient-to-br from-blue-600 to-purple-600 opacity-30 rounded-full absolute top-10 left-1/2 transform -translate-x-1/2"></div>
     <!-- <div class="blur-[120px] w-72 h-72 bg-gradient-to-r from-indigo-500 to-cyan-400 opacity-30 rounded-full absolute bottom-10 right-20"></div> -->
   </div>
 
   <Container>
-    <!-- Úvodná sekcia -->
     <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-5xl font-bold mb-4">O nás</h2>
+      <h2 class="text-5xl font-bold mb-4">{t.abUsTitle}</h2>
       <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-        V <b>SIMEL s.r.o.</b> sa špecializujeme na spoľahlivé elektroinštalácie a moderné technologické riešenia. Naším cieľom je poskytovať kvalitné služby pre domácnosti, firmy aj priemyselné objekty – od návrhu a montáže až po servis a údržbu.
+        <!-- {t.abUsDesc} -->
+        <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+          {t.abUsDesc1} <span class="text-indigo-400 font-semibold">{t.title}</span>{t.abUsDesc2}<span class="text-indigo-400 font-semibold">{t.abUsDesc3}</span>{t.abUsDesc4}
+        </p>
+      
+        <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto mt-4">
+          {t.abUsDesc5}<span class="text-indigo-400 font-semibold">{t.abUsDesc6}</span>{t.abUsDesc7}
+        </p>
+      
+        <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto mt-4">
+          {t.abUsDesc8}<span class="text-indigo-400 font-semibold">{t.abUsDesc9}</span>. <span class="text-indigo-400 font-bold">{t.abUsDesc10}{t.title}</span>
+        </p>
       </p>
     </div>
 
-    <!-- Hodnoty spoločnosti -->
     <div class="grid md:grid-cols-3 gap-8 text-center" data-aos="fade-up">
       <div class="p-6 bg-gray-900 rounded-xl shadow-lg hover:scale-105 transition-transform">
         <div class="text-4xl text-blue-400 mb-4">⚡</div>
-        <h4 class="text-xl font-semibold mb-2">Spoľahlivosť</h4>
-        <p class="text-gray-400">Každý projekt riešime s dôrazom na kvalitu a zodpovednosť.</p>
+        <h4 class="text-xl font-semibold mb-2">{t.abUs1}</h4>
+        <p class="text-gray-400">{t.abUs1Desc}</p>
       </div>
       <div class="p-6 bg-gray-900 rounded-xl shadow-lg hover:scale-105 transition-transform">
         <div class="text-4xl text-purple-400 mb-4">🚀</div>
-        <h4 class="text-xl font-semibold mb-2">Inovácie</h4>
-        <p class="text-gray-400">Sledujeme technologické trendy a aplikujeme ich do našej práce.</p>
+        <h4 class="text-xl font-semibold mb-2">{t.abUs2}</h4>
+        <p class="text-gray-400">{t.abUs2Desc}</p>
       </div>
       <div class="p-6 bg-gray-900 rounded-xl shadow-lg hover:scale-105 transition-transform">
         <div class="text-4xl text-cyan-400 mb-4">🛡️</div>
-        <h4 class="text-xl font-semibold mb-2">Bezpečnosť</h4>
-        <p class="text-gray-400">Dodržiavame všetky bezpečnostné normy pre vaše maximálne pohodlie.</p>
+        <h4 class="text-xl font-semibold mb-2">{t.abUs3}</h4>
+        <p class="text-gray-400">{t.abUs3Desc}</p>
       </div>
     </div>
 
-    <!-- Prečo si vybrať nás? -->
-    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-10 rounded-xl shadow-xl text-center my-16" data-aos="fade-up">
-      <h3 class="text-3xl font-bold">Prečo si vybrať SIMEL?</h3>
-      <p class="mt-4 text-lg leading-relaxed max-w-2xl mx-auto">
-        Máme dlhoročné skúsenosti a odborný tím, ktorý sa postará o všetky vaše elektroinštalačné potreby. Ponúkame moderné riešenia, individuálny prístup a garantujeme vysokú kvalitu služieb.
-      </p>
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-10 rounded-xl shadow-xl text-center my-16 relative overflow-hidden" data-aos="fade-up">
+      <div class="absolute top-0 left-0 w-32 h-32 bg-indigo-400 opacity-30 rounded-full blur-2xl"></div>
+      <div class="absolute bottom-0 right-0 w-40 h-40 bg-purple-400 opacity-30 rounded-full blur-2xl"></div>
+    
+      <h3 class="text-4xl font-extrabold mb-6 tracking-wide">{t.abUsWhy}</h3>
+    
+      <div class="space-y-5 text-left max-w-3xl mx-auto">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-white text-indigo-600 rounded-full flex items-center justify-center text-lg font-bold">✓</div>
+          <p class="text-lg leading-relaxed">
+            <strong>{t.abUsWhy1}</strong>{t.abUsWhy2}
+          </p>
+        </div>
+    
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-white text-indigo-600 rounded-full flex items-center justify-center text-lg font-bold">✓</div>
+          <p class="text-lg leading-relaxed">
+            {t.abUsWhy3}<strong>{t.abUsWhy4}</strong>{t.abUsWhy5}
+          </p>
+        </div>
+    
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-white text-indigo-600 rounded-full flex items-center justify-center text-lg font-bold">✓</div>
+          <p class="text-lg leading-relaxed">
+            {t.abUsWhy6}<strong>{t.abUsWhy7}</strong>{t.abUsWhy8}
+          </p>
+        </div>
+    
+        <p class="mt-6 text-xl font-semibold text-center">
+          {t.abUsWhy9}<span class="text-yellow-300">{t.abUsWhy10}</span>{t.abUsWhy11}
+        </p>
+      </div>
     </div>
+    
 
-    <!-- Sekcia: Tím odborníkov -->
-    <h2 class="text-5xl font-bold text-center mb-16" data-aos="fade-up">Náš tím</h2>
+    <h2 class="text-5xl font-bold text-center mb-16" data-aos="fade-up">{t.abUsTeam}</h2>
 
     <div class="space-y-16">
-      {teamMembers.map((member) => (
+      {t.teamMembers.map((member) => (
         <div
           class={`flex flex-col md:flex-row  items-center bg-gray-900 p-6 rounded-xl shadow-lg`}
           data-aos="fade-up"
         >
-          <!-- Obrázok člena tímu -->
           <img src={member.img} alt={member.name} class="w-48 h-48 rounded-full shadow-md object-cover mx-6" />
 
-          <!-- Informácie o členovi -->
           <div class="mt-6 md:mt-0 md:max-w-xl text-center md:text-left">
             <h3 class="text-2xl font-semibold text-blue-400">{member.name}</h3>
             <p class="text-lg text-white">{member.role}</p>
             <p class="mt-4 text-gray-300">{member.description}</p>
 
-            <!-- Kontaktné údaje -->
             <div class="mt-4 space-y-1 text-gray-400">
-              <p><strong>Email:</strong> <a href={`mailto:${member.email}`} class="text-blue-400 hover:underline">{member.email}</a></p>
-              <p><strong>Telefón:</strong> <a href={`tel:${member.phone}`} class="text-blue-400 hover:underline">{member.phone}</a></p>
+              <p><strong>{t.abUsTeamEmail}</strong> <a href={`mailto:${member.email}`} class="text-blue-400 hover:underline">{member.email}</a></p>
+              <p><strong>{t.abUsTeamPhone}</strong> <a href={`tel:${member.phone}`} class="text-blue-400 hover:underline">{member.phone}</a></p>
             </div>
           </div>
         </div>

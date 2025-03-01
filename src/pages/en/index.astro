@@ -1,0 +1,20 @@
+---
+import Stats from '../../components/Stats.astro';
+import Features from '../../components/Features.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import Layout from '../../layouts/Layout.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import AboutUs from '../../components/AboutUs.astro';
+---
+
+<Layout title="Simel s.r.o.">
+	<main class="w-full mb-40">
+		<HeroSection 
+		  showButtons={true} 
+		  customClass="h-screen"
+		/>
+		<Features/>
+		<Stats/>
+		<CallToAction/>
+	</main>
+</Layout>

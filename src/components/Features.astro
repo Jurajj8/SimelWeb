@@ -1,6 +1,23 @@
 ---
 import Container from "./Container.astro"
+import { translations } from "../locales.ts";
 
+
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'sk';
+const t = translations[currentLang] || translations.sk;
+
+const languages = [
+  { code: "sk", label: "Slovensky" },
+  { code: "en", label: "English" },
+  { code: "de", label: "Deutsch" }
+];
+
+const languageLinks = languages.map(lang => ({
+  code: lang.code,
+  label: lang.label,
+  url: currentPath.replace(`/${currentLang}`, `/${lang.code}`)
+}));
 ---
 
 <div id="features" class="scroll-mt-40 mt-40">
@@ -11,9 +28,9 @@ import Container from "./Container.astro"
       </svg>
       
       <h2 class="my-8 text-2xl font-bold text-gray-700  text-white md:text-4xl">
-        Naše služby pre vás
+        {t.featuresHead}
       </h2>
-      <p class="text-gray-300">Prinášame spoľahlivé riešenia pre elektroinštalácie, ktoré spĺňajú najvyššie štandardy bezpečnosti a efektivity – doma aj v zahraničí.</p>
+      <p class="text-gray-300">{t.featuresDesc}</p>
     </div>
     <div
       class="mt-16 grid divide-x divide-y divide-gray-100  divide-gray-700 overflow-hidden rounded-3xl border border-gray-100 text-gray-600  border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4" data-aos="fade-up"
@@ -32,10 +49,10 @@ import Container from "./Container.astro"
             <h5
               class="text-xl font-semibold text-gray-700  text-white transition group-hover:text-secondary"
             >
-            Komplexné elektroinštalácie
+            {t.feature1}
             </h5>
             <p class="text-gray-300">
-              Bezpečné a moderné riešenia pre domácnosti, firmy aj priemysel.
+              {t.feature1Desc}
             </p>
           </div>
           <!-- <a href="#" class="flex items-center justify-between group-hover:text-secondary">
@@ -60,10 +77,10 @@ import Container from "./Container.astro"
             <h5
               class="text-xl font-semibold text-gray-700  text-white transition group-hover:text-secondary"
             >
-            Návrh a projektovanie
+            {t.feature2}
             </h5>
             <p class="text-gray-300">
-              Profesionálne spracovanie od konceptu až po realizáciu.
+              {t.feature2Desc}
             </p>
           </div>
           <!-- <a href="#" class="flex items-center justify-between group-hover:text-secondary">
@@ -88,10 +105,10 @@ import Container from "./Container.astro"
             <h5
               class="text-xl font-semibold text-gray-700  text-white transition group-hover:text-secondary"
             >
-            Revízie a údržba
+            {t.feature3}
             </h5>
             <p class="text-gray-300">
-              Kontrola a servis pre dlhodobú spoľahlivosť.
+              {t.feature3Desc}
             </p>
           </div>
           <!-- <a href="#" class="flex items-center justify-between group-hover:text-secondary">
@@ -115,10 +132,10 @@ import Container from "./Container.astro"
             <h5
               class="text-xl font-semibold text-gray-700  text-white transition group-hover:text-secondary"
             >
-            Bleskozvody a ochrana
+            {t.feature4}
             </h5>
             <p class="text-gray-300">
-              Aktívne aj pasívne systémy pre maximálnu bezpečnosť.
+              {t.feature4Desc}
             </p>
           </div>
           <!-- <a href="#" class="flex items-center justify-between group-hover:text-secondary">

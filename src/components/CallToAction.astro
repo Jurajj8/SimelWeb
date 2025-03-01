@@ -1,5 +1,25 @@
 ---
 import Container from "./Container.astro";
+import { translations } from "../locales.ts";
+
+
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'sk';
+const t = translations[currentLang] || translations.sk;
+
+const createLocalizedPath = (path) => `/${currentLang}${path === "/" ? "" : path}`;
+
+const languages = [
+  { code: "sk", label: "Slovensky" },
+  { code: "en", label: "English" },
+  { code: "de", label: "Deutsch" }
+];
+
+const languageLinks = languages.map(lang => ({
+  code: lang.code,
+  label: lang.label,
+  url: currentPath.replace(`/${currentLang}`, `/${lang.code}`)
+}));
 ---
 
 <div class="relative py-16 scroll-mt-40 mt-60 mb-60" id="callToAction">
@@ -19,24 +39,24 @@ import Container from "./Container.astro";
       </div>
       <div class="mt-6 m-auto space-y-6 md:w-8/12 lg:w-7/12">
         <h1 class="text-center text-4xl font-bold text-white md:text-5xl">
-          Kontaktujte nás ešte dnes
+          {t.callToAct}
         </h1>
         <p class="text-center text-xl text-gray-300">
-          Poskytujeme inovatívne a efektívne riešenia v oblasti elektroinštalácií na mieru pre vaše potreby.
+          {t.callToActDesc}
         </p>
         <div class="flex flex-wrap justify-center gap-6">
           <a
               id="open-contact-modal"
-              href="/contact"
+              href={createLocalizedPath("/contact")}
               class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
             >
-              <span class="relative text-base font-semibold text-dark">Kontaktovať</span>
+              <span class="relative text-base font-semibold text-dark">{t.callToActContact}</span>
           </a>
           <a
-              href="/aboutUs"
+              href={createLocalizedPath("/aboutUs")}
               class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 before:border-gray-700 before:bg-gray-800 sm:w-max"
             >
-              <span class="relative text-base font-semibold text-white">O nás</span>
+              <span class="relative text-base font-semibold text-white">{t.callToActAboutUs}</span>
           </a>
         </div>
       </div>

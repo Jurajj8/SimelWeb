@@ -1,6 +1,23 @@
 ---
 import Container from "./Container.astro";
+import { translations } from "../locales.ts";
 
+
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'sk';
+const t = translations[currentLang] || translations.sk;
+
+const languages = [
+  { code: "sk", label: "Slovensky" },
+  { code: "en", label: "English" },
+  { code: "de", label: "Deutsch" }
+];
+
+const languageLinks = languages.map(lang => ({
+  code: lang.code,
+  label: lang.label,
+  url: currentPath.replace(`/${currentLang}`, `/${lang.code}`)
+}));
 ---
 
 <div id="solution" class="scroll-mt-45 mt-45">
@@ -11,7 +28,6 @@ import Container from "./Container.astro";
     </svg>
   
     <div class="flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-12 py-12">
-      <!-- Grafická časť -->
       <div class="md:w-5/12 lg:w-1/2" data-aos="fade-up">
         <img
           src="./images/pie.svg"
@@ -21,18 +37,15 @@ import Container from "./Container.astro";
         />
       </div>
     
-      <!-- Textová časť -->
       <div class="md:w-7/12 lg:w-1/2" data-aos="fade-up">
         <h2 class="text-4xl font-bold text-white mb-6 tracking-tight">
-          Prečo si vybrať nás?
+          {t.stats}
         </h2>
         <p class="mb-8 text-lg text-gray-300 leading-relaxed">
-          V spoločnosti Simel prinášame elektroinštalačné riešenia, ktoré spájajú moderné technológie, precíznosť a spoľahlivosť. 
-          Každý projekt realizujeme s dôrazom na kvalitu a individuálne potreby zákazníkov.
+          {t.statsDesc}
         </p>
     
         <div class="space-y-6">
-          <!-- Efektívne riešenia -->
           <div class="flex gap-6 items-center bg-gray-800/40 p-5 rounded-lg shadow-lg transition hover:scale-[1.02]" data-aos="fade-up">
             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-indigo-900/20 shadow-md">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-indigo-400">
@@ -40,12 +53,11 @@ import Container from "./Container.astro";
               </svg>        
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-indigo-400">Efektívne riešenia</h3>
-              <p class="text-gray-400">Každý projekt je navrhnutý s dôrazom na bezpečnosť a efektívnosť.</p>
+              <h3 class="text-xl font-semibold text-indigo-400">{t.stat1}</h3>
+              <p class="text-gray-400">{t.stat1Desc}</p>
             </div>
           </div>
     
-          <!-- Skúsenosti a odbornosť -->
           <div class="flex gap-6 items-center bg-gray-800/40 p-5 rounded-lg shadow-lg transition hover:scale-[1.02]" data-aos="fade-up">
             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-teal-900/20 shadow-md">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-teal-400">
@@ -53,12 +65,11 @@ import Container from "./Container.astro";
               </svg>        
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-teal-400">Skúsenosti a odbornosť</h3>
-              <p class="text-gray-400">Tím odborníkov so skúsenosťami doma aj v zahraničí.</p>
+              <h3 class="text-xl font-semibold text-teal-400">{t.stat2}</h3>
+              <p class="text-gray-400">{t.stat2Desc}</p>
             </div>
           </div>
     
-          <!-- Kvalita a precíznosť -->
           <div class="flex gap-6 items-center bg-gray-800/40 p-5 rounded-lg shadow-lg transition hover:scale-[1.02]" data-aos="fade-up">
             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-900/20 shadow-md">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-yellow-400">
@@ -66,8 +77,8 @@ import Container from "./Container.astro";
               </svg>        
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-yellow-400">Kvalita a precíznosť</h3>
-              <p class="text-gray-400">Garantujeme najvyššie štandardy kvality pri každej realizácii.</p>
+              <h3 class="text-xl font-semibold text-yellow-400">{t.stat3}</h3>
+              <p class="text-gray-400">{t.stat3Desc}</p>
             </div>
           </div>
         </div>
