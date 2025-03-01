@@ -7,6 +7,11 @@ export default defineConfig({
   base: '/', // ✅ Správna relatívna cesta pre hosting
   output: "static", // ✅ Vynúti statický výstup
   integrations: [sitemap()],
+  trailingSlash: 'never',
+
+  redirects: {
+    '/': '/sk'
+  },
 
   vite: {
     plugins: [tailwindcss()],

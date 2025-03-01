@@ -2,7 +2,6 @@
 import Container from "./Container.astro";
 import { translations } from "../locales.ts";
 
-
 const currentPath = Astro.url.pathname;
 const currentLang = currentPath.split('/')[1] || 'sk';
 const t = translations[currentLang] || translations.sk;
@@ -62,17 +61,16 @@ const languageLinks = languages.map(lang => ({
               <span class="relative text-sm font-semibold text-white"> {t.contact}</span>
             </a>
           </div>
-
-          <!-- Jazykový prepínač v mobilnom menu (skrytý na desktopoch) -->
-          <div class="hidden group-data-[state=active]:flex justify-center mt-6 lg:hidden">
-            <button id="language-button-mobile" class="flex items-center px-4 py-2 bg-gray-800 text-white rounded-md shadow-md hover:bg-gray-700 transition">
+          <div class="relative flex justify-center lg:ps-8 max-sm:pt-5">
+            <button id="language-button" class="flex items-center px-4 py-2  text-white rounded-md hover:bg-gray-700 transition"><!-- bg-gray-800 -->
               🌍 {languageLinks.find(lang => lang.code === currentLang)?.label || "Jazyk"}
               <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
 
-            <ul id="language-dropdown-mobile" class="absolute hidden bg-gray-900 text-white shadow-lg rounded-md mt-2 w-40 overflow-hidden transition">
+            <!-- Dropdown menu, viditeľné podľa Tailwind tried -->
+            <ul id="language-dropdown" class="absolute hidden bg-gray-900 text-white shadow-lg rounded-md mt-2 w-40 overflow-hidden transition opacity-0 scale-95 lg:opacity-100 lg:scale-100">
               {languageLinks.map(lang => (
                 <li>
                   <a href={lang.url} class="flex items-center px-4 py-2 hover:bg-gray-700 transition">
@@ -83,27 +81,6 @@ const languageLinks = languages.map(lang => ({
               ))}
             </ul>
           </div>
-        </div>
-
-        <!-- Jazykový prepínač pre desktop (skrytý na mobiloch) -->
-        <div class="hidden lg:flex relative">
-          <button id="language-button" class="flex items-center px-4 py-2 bg-gray-800 text-white rounded-md shadow-md hover:bg-gray-700 transition">
-            🌍 {languageLinks.find(lang => lang.code === currentLang)?.label || "Jazyk"}
-            <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-
-          <ul id="language-dropdown" class="absolute hidden bg-gray-900 text-white shadow-lg rounded-md mt-2 w-40 overflow-hidden transition">
-            {languageLinks.map(lang => (
-              <li>
-                <a href={lang.url} class="flex items-center px-4 py-2 hover:bg-gray-700 transition">
-                  <img src={`/flags/${lang.code}.svg`} alt={lang.label} class="w-5 h-5 mr-2">
-                  {lang.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </Container>
@@ -145,20 +122,24 @@ const languageLinks = languages.map(lang => ({
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const langButtonMobile = document.getElementById("language-button-mobile");
-    const langDropdownMobile = document.getElementById("language-dropdown-mobile");
+    const langButton = document.getElementById("language-button");
+    const langDropdown = document.getElementById("language-dropdown");
 
-    langButtonMobile.addEventListener("click", (event) => {
-        event.stopPropagation(); 
-        langDropdownMobile.classList.toggle("hidden");
+    langButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        langDropdown.classList.toggle("hidden");
+        langDropdown.classList.toggle("opacity-0");
+        langDropdown.classList.toggle("scale-95");
     });
 
-    langDropdownMobile.addEventListener("click", (event) => {
+    langDropdown.addEventListener("click", (event) => {
         event.stopPropagation();
     });
 
     document.addEventListener("click", () => {
-        langDropdownMobile.classList.add("hidden");
+        langDropdown.classList.add("hidden");
+        langDropdown.classList.add("opacity-0");
+        langDropdown.classList.add("scale-95");
     });
 });
 </script>

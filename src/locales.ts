@@ -99,6 +99,19 @@ export const translations = {
           phone: "+421 949 461 004",
         },
       ],
+
+      contactUs: "Kontakt",
+      contactQ: "Máte otázky? Neváhajte nás kontaktovať.",
+      contactWriteUs: "Napíšte nám",
+      contactDesc: "Máte otázky alebo potrebujete viac informácií? Pošlite nám správu a my sa vám ozveme čo najskôr",
+      contactName: "Meno",
+      contactEmail: "E-mail",
+      contactMessage: "Správa",
+      contactSend: "Odoslať",
+      contactThank: "Ďakujeme",
+      contactThankYou: "Ďakujeme za vašu správu. Ozveme sa vám čo najskôr.",
+
+
     },
     en: {
       home: "Home",
@@ -199,6 +212,17 @@ export const translations = {
           phone: "+421 949 461 004",
         },
       ],
+
+      contactUs: "Contact",
+      contactQ: "Do you have questions? Feel free to contact us.",
+      contactWriteUs: "Write to us",
+      contactDesc: "Do you have questions or need more information? Send us a message and we will get back to you as soon as possible",
+      contactName: "Name",
+      contactEmail: "Email",
+      contactMessage: "Message",
+      contactSend: "Send",
+      contactThank: "Thank you",
+      contactThankYou: "Thank you for your message. We will get back to you as soon as possible.",
     },
     de: {
       home: "Startseite",
@@ -299,6 +323,17 @@ export const translations = {
           phone: "+421 949 461 004",
         },
       ],
+      
+      contactUs: "Contact",
+      contactQ: "Do you have questions? Feel free to contact us.",
+      contactWriteUs: "Write to us",
+      contactDesc: "Do you have questions or need more information? Send us a message and we will get back to you as soon as possible",
+      contactName: "Name",
+      contactEmail: "Email",
+      contactMessage: "Message",
+      contactSend: "Send",
+      contactThank: "Thank you",
+      contactThankYou: "Thank you for your message. We will get back to you as soon as possible.",
     }
   };
   
