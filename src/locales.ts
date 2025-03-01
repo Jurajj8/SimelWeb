@@ -77,7 +77,7 @@ export const translations = {
         {
           name: "Jakub Šimčisko",
           role: "Konateľ",
-          img: "/2.png",
+          img: "/222.png",
           description: "Zodpovedám za riadenie projektov, komunikáciu so zákazníkmi a zabezpečenie kvalitných riešení.",
           email: "info.simel@gmail.com",
           phone: "+421 919 285 912",
@@ -85,7 +85,7 @@ export const translations = {
         {
           name: "Monika Stanikova",
           role: "Vedenie účtovníctva",
-          img: "/2.png",
+          img: "/222.png",
           description: "Zodpovedám za kompletné vedenie účtovníctva vrátane spracovania miezd a daňových priznaní.",
           email: "stanikova25@gmail.com",
           phone: "+421 908 621 165",
@@ -93,7 +93,7 @@ export const translations = {
         {
           name: "Silvia Trimelová",
           role: "Asistentka",
-          img: "/2.png",
+          img: "/222.png",
           description: "Zabezpečuje administratívnu podporu, koordináciu agendy a komunikáciu, aby všetky procesy vo firme prebiehali hladko a efektívne.",
           email: "asis.simel@gmail.com",
           phone: "+421 949 461 004",
@@ -177,7 +177,7 @@ export const translations = {
         {
           name: "Jakub Šimčisko",
           role: "CEO",
-          img: "/2.png",
+          img: "/222.png",
           description: "I am responsible for project management, customer communication, and ensuring quality solutions.",
           email: "info.simel@gmail.com",
           phone: "+421 919 285 912",
@@ -185,7 +185,7 @@ export const translations = {
         {
           name: "Monika Stanikova",
           role: "Accounting Manager",
-          img: "/2.png",
+          img: "/222.png",
           description: "I am responsible for complete accounting management, including payroll processing and tax returns.",
           email: "stanikova25@gmail.com",
           phone: "+421 908 621 165",
@@ -193,7 +193,7 @@ export const translations = {
         {
           name: "Silvia Trimelová",
           role: "Assistant",
-          img: "/2.png",
+          img: "/222.png",
           description: "Provides administrative support, agenda coordination, and communication to ensure smooth and efficient company processes.",
           email: "asis.simel@gmail.com",
           phone: "+421 949 461 004",
@@ -277,7 +277,7 @@ export const translations = {
         {
           name: "Jakub Šimčisko",
           role: "Geschäftsführer",
-          img: "/2.png",
+          img: "/222.png",
           description: "Ich bin verantwortlich für Projektmanagement, Kundenkommunikation und die Sicherstellung qualitativ hochwertiger Lösungen.",
           email: "info.simel@gmail.com",
           phone: "+421 919 285 912",
@@ -285,7 +285,7 @@ export const translations = {
         {
           name: "Monika Stanikova",
           role: "Leiterin der Buchhaltung",
-          img: "/2.png",
+          img: "/222.png",
           description: "Ich bin verantwortlich für die vollständige Buchhaltungsführung, einschließlich Gehaltsabrechnung und Steuererklärungen.",
           email: "stanikova25@gmail.com",
           phone: "+421 908 621 165",
@@ -293,7 +293,7 @@ export const translations = {
         {
           name: "Silvia Trimelová",
           role: "Assistentin",
-          img: "/2.png",
+          img: "/222.png",
           description: "Bietet administrative Unterstützung, Koordination der Agenda und Kommunikation, um reibungslose und effiziente Unternehmensprozesse zu gewährleisten.",
           email: "asis.simel@gmail.com",
           phone: "+421 949 461 004",
