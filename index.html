@@ -1,1 +1,35 @@
-<!doctype html><title>Redirecting to: https://simel-group.sk/sk</title><meta http-equiv="refresh" content="0;url=https://simel-group.sk/sk"><meta name="robots" content="noindex"><link rel="canonical" href="https://simel-group.sk/sk"><body>	<a href="https://simel-group.sk/sk">Redirecting from <code>/</code> to <code>https://simel-group.sk/sk</code></a></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <meta name="robots" content="noindex">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("🟢 JavaScript sa spustil na /");
+
+            const supportedLangs = ["sk", "en", "de"];
+            const defaultLang = "sk";
+
+            // Detekcia jazyka prehliadača
+            const userLang = navigator.language || navigator.userLanguage;
+            console.log(`🌍 navigator.language: ${userLang}`);
+
+            // Skrátenie jazyka (napr. "de-DE" → "de")
+            const userLangShort = userLang.split('-')[0];
+            console.log(`🔍 Skrátený jazyk: ${userLangShort}`);
+
+            // Použitie preferovaného jazyka alebo fallback na SK
+            const newLang = supportedLangs.includes(userLangShort) ? userLangShort : defaultLang;
+            console.log(`✅ Presmerovávam na: /${newLang}`);
+
+            // Presmerovanie na správnu jazykovú verziu
+            window.location.replace(`/${newLang}/`);
+        });
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
