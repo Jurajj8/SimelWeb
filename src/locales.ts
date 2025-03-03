@@ -111,7 +111,9 @@ export const translations = {
       contactThank: "Ďakujeme",
       contactThankYou: "Ďakujeme za vašu správu. Ozveme sa vám čo najskôr.",
 
-
+      heroContactTitle: "Kontakt",
+      heroContactSubtitle: "Sme tu pre vás",
+      heroContactDescription: "Ak máte akékoľvek otázky alebo máte záujem o spoluprácu s nami, neváhajte nás kontaktovať prostredníctvom formulára alebo telefonicky.",
     },
     en: {
       home: "Home",
@@ -223,6 +225,10 @@ export const translations = {
       contactSend: "Send",
       contactThank: "Thank you",
       contactThankYou: "Thank you for your message. We will get back to you as soon as possible.",
+
+      heroContactTitle: "Contact",
+      heroContactSubtitle: "We are here for you",
+      heroContactDescription: "If you have any questions or are interested in collaborating, please do not hesitate to contact us via the form or by phone."
     },
     de: {
       home: "Startseite",
@@ -334,6 +340,10 @@ export const translations = {
       contactSend: "Abschicken",
       contactThank: "Thank you",
       contactThankYou: "Thank you for your message. We will get back to you as soon as possible.",
+
+      heroContactTitle: "Kontakt",
+      heroContactSubtitle: "Wir sind für Sie da",
+      heroContactDescription: "Wenn Sie Fragen haben oder an einer Zusammenarbeit interessiert sind, zögern Sie bitte nicht, uns über das Formular oder per Telefon zu kontaktieren.",
     }
   };
   

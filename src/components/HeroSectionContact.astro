@@ -1,0 +1,60 @@
+---
+import { translations } from "../locales.ts";
+import Container from "./Container.astro";
+
+
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'sk';
+
+const t = translations[currentLang] || translations.sk;
+
+const createLocalizedPath = (path) => `/${currentLang}${path === "/" ? "" : path}`;
+
+
+const {
+  title = t.title,
+  subtitle = t.subtitle,
+  description = t.description,
+  showButtons = true, 
+  customClass = ""
+} = Astro.props;
+---
+
+<div class="relative pt-24 sm:pt-32 md:pt-10" id="home">
+    <div aria-hidden="true" class="absolute inset-0 flex justify-center items-center opacity-30">
+        <div class="blur-[120px] w-[300px] h-[200px] bg-gradient-to-br from-primary to-purple-500 rounded-full"></div>
+        <div class="blur-[120px] w-[200px] h-[150px] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full absolute"></div>
+    </div>
+
+    <Container>
+        <div class={`relative flex flex-col items-center text-center justify-center ${customClass}`}>
+            <h1 class="text-balance text-white font-extrabold text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-tight tracking-tight">
+                <span class="block">{t.heroContactTitle}</span>
+                <span class="block bg-gradient-to-r from-primary to-purple-500 text-transparent bg-clip-text">
+                    {t.heroContactSubtitle}
+                </span>
+            </h1>
+
+            <p class="mt-6 max-w-3xl text-gray-300 text-lg md:text-xl">
+                {t.heroContactDescription}
+            </p>
+
+            {showButtons && (
+                <div class="mt-10 flex flex-wrap justify-center gap-6">
+                    <a
+                        href={createLocalizedPath("/contact")}
+                        class="relative flex h-12 w-max items-center justify-center px-8 font-medium text-lg rounded-full bg-primary text-white transition-transform transform hover:scale-105 shadow-md shadow-primary/50"
+                    >
+                        {t.contact}
+                    </a>
+                    <a
+                        href={createLocalizedPath("/aboutUs")}
+                        class="relative flex h-12 w-max items-center justify-center px-8 font-medium text-lg rounded-full border border-gray-700 bg-gray-900 text-white transition-transform transform hover:scale-105 shadow-md shadow-gray-800"
+                    >
+                        {t.aboutUs}
+                    </a>
+                </div>
+            )}
+        </div>
+    </Container>
+</div>

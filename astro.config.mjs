@@ -8,11 +8,7 @@ export default defineConfig({
   output: "static", // ✅ Vynúti statický výstup
   integrations: [sitemap()],
   trailingSlash: 'never',
-
-  redirects: {
-    '/': '/sk'
-  },
-
+  
   vite: {
     plugins: [tailwindcss()],
     build: {
