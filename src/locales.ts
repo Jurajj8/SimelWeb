@@ -3,6 +3,7 @@ export const translations = {
       home: "Domov",
       aboutUs: "O nás",
       contact: "Kontaktovať",
+      collaboration: "Začať spoluprácu",
       features: "Funkcie",
       gallery: "Galéria",
       title: "SIMEL s.r.o.",
@@ -113,12 +114,13 @@ export const translations = {
 
       heroContactTitle: "Kontakt",
       heroContactSubtitle: "Sme tu pre vás",
-      heroContactDescription: "Ak máte akékoľvek otázky alebo máte záujem o spoluprácu s nami, neváhajte nás kontaktovať prostredníctvom formulára alebo telefonicky.",
+      heroContactDescription: "Ak máte akékoľvek otázky alebo máte záujem o spoluprácu s nami, neváhajte nás kontaktovať prostredníctvom formulára, mailom alebo telefonicky.",
     },
     en: {
       home: "Home",
       aboutUs: "About Us",
       contact: "Contact",
+      collaboration: "Start collaboration",
       features: "Features",
       gallery: "Gallery",
       title: "SIMEL s.r.o.",
@@ -228,12 +230,13 @@ export const translations = {
 
       heroContactTitle: "Contact",
       heroContactSubtitle: "We are here for you",
-      heroContactDescription: "If you have any questions or are interested in collaborating, please do not hesitate to contact us via the form or by phone."
+      heroContactDescription: "If you have any questions or are interested in working with us, please do not hesitate to contact us via the form, email or phone."
     },
     de: {
       home: "Startseite",
       aboutUs: "Über uns",
       contact: "Kontakt",
+      collaboration: "Zusammenarbeit starten",
       features: "Funktionen",
       gallery: "Galerie",
       title: "SIMEL s.r.o.",
@@ -242,7 +245,7 @@ export const translations = {
       footerText: "© 2024 SIMEL s.r.o. . Alle Rechte vorbehalten.",
       footerGps: "GPS-Koordinaten:",
       footerCity: "Hauptsitz",
-      footerContact: "Kontakte",
+      footerContact: "Kontakt",
       footerWhere: "Wo finden Sie uns?",
 
       featuresHead: "Unsere Dienstleistungen für Sie",
@@ -256,7 +259,7 @@ export const translations = {
       feature4: "Blitzableiter und Blitzschutz",
       feature4Desc: "Aktive und passive Systeme für maximale Sicherheit.",
 
-      stats: "Aktive und passive Systeme für maximale Sicherheit.",
+      stats: "Warum sollten Sie uns beauftragen? ",
       statsDesc: "Bei Simel liefern wir Elektroinstallationslösungen, die moderne Technologie, Präzision und Zuverlässigkeit vereinen. Jedes Projekt wird mit Schwerpunkt auf Qualität und individuellen Kundenbedürfnissen durchgeführt.",
       stat1: "Wirksame Lösungen",
       stat1Desc: "Jedes Projekt wird unter Berücksichtigung von Sicherheit und Effizienz konzipiert.",
@@ -306,7 +309,7 @@ export const translations = {
       teamMembers: [
         {
           name: "Jakub Šimčisko",
-          role: "Geschäftsführender Direktor",
+          role: "Geschäftsführer",
           img: "/222.png",
           description: "Ich bin für das Projektmanagement, die Kommunikation mit den Kunden und die Gewährleistung von Qualitätslösungen zuständig.",
           email: "info.simel@gmail.com",
@@ -343,7 +346,7 @@ export const translations = {
 
       heroContactTitle: "Kontakt",
       heroContactSubtitle: "Wir sind für Sie da",
-      heroContactDescription: "Wenn Sie Fragen haben oder an einer Zusammenarbeit interessiert sind, zögern Sie bitte nicht, uns über das Formular oder per Telefon zu kontaktieren.",
+      heroContactDescription: "Wenn Sie Fragen haben oder Interesse an einer Zusammenarbeit haben, können Sie uns gerne über das Formular, per E-Mail oder Telefon kontaktieren.",
     }
   };
   
