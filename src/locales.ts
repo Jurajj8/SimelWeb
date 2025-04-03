@@ -115,6 +115,7 @@ export const translations = {
       heroContactTitle: "Kontakt",
       heroContactSubtitle: "Sme tu pre vás",
       heroContactDescription: "Ak máte akékoľvek otázky alebo máte záujem o spoluprácu s nami, neváhajte nás kontaktovať prostredníctvom formulára, mailom alebo telefonicky.",
+      projects: "Projekty",
     },
     en: {
       home: "Home",
@@ -230,7 +231,8 @@ export const translations = {
 
       heroContactTitle: "Contact",
       heroContactSubtitle: "We are here for you",
-      heroContactDescription: "If you have any questions or are interested in working with us, please do not hesitate to contact us via the form, email or phone."
+      heroContactDescription: "If you have any questions or are interested in working with us, please do not hesitate to contact us via the form, email or phone.",
+      projects: "Projects",
     },
     de: {
       home: "Startseite",
@@ -347,6 +349,7 @@ export const translations = {
       heroContactTitle: "Kontakt",
       heroContactSubtitle: "Wir sind für Sie da",
       heroContactDescription: "Wenn Sie Fragen haben oder Interesse an einer Zusammenarbeit haben, können Sie uns gerne über das Formular, per E-Mail oder Telefon kontaktieren.",
+      projects: "Projekte",
     }
   };
   

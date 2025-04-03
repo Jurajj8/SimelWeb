@@ -1,0 +1,78 @@
+---
+import Container from "./Container.astro";
+
+const projects = [
+  {
+    title: "Dortmund",
+    description: "Popis projektu Dortmund",
+    images: ["/projects/dortmund/1.jpg", "/projects/dortmund/2.jpg", "/projects/dortmund/3.jpg", "/projects/dortmund/4.jpg", "/projects/dortmund/5.jpg", "/projects/dortmund/6.jpg"]
+  },
+  {
+    title: "Düsseldorf",
+    description: "Popis projektu Düsseldorf",
+    images: ["/projects/dusseldorf/1.jpg", "/projects/dusseldorf/2.jpg", "/projects/dusseldorf/3.jpg", "/projects/dusseldorf/4.jpg", "/projects/dusseldorf/5.jpg"
+        , "/projects/dusseldorf/6.jpg", "/projects/dusseldorf/7.jpg", "/projects/dusseldorf/8.jpg", "/projects/dusseldorf/9.jpg"
+    ]
+  },
+  {
+    title: "Erftstadt",
+    description: "Popis projektu Erftstadt",
+    images: ["/projects/erftstadt/1.jpg", "/projects/erftstadt/2.jpg", "/projects/erftstadt/3.jpg", "/projects/erftstadt/4.jpg", "/projects/erftstadt/5.jpg"
+        , "/projects/erftstadt/6.jpg", "/projects/erftstadt/7.jpg"
+    ]
+  },
+  {
+    title: "Essen",
+    description: "Popis projektu Essen",
+    images: ["/projects/essen/1.jpg", "/projects/essen/2.jpg", "/projects/essen/3.jpg", "/projects/essen/4.jpg", "/projects/essen/5.jpg"
+        , "/projects/essen/6.jpg", "/projects/essen/7.jpg", "/projects/essen/8.jpg"
+    ]
+  },
+  {
+    title: "Itzehoe",
+    description: "Popis projektu Itzehoe",
+    images: ["/projects/itzehoe/1.jpg", "/projects/itzehoe/2.jpg", "/projects/itzehoe/3.jpg", "/projects/itzehoe/4.jpg", "/projects/itzehoe/5.jpg"
+        , "/projects/itzehoe/6.jpg", "/projects/itzehoe/7.jpg", "/projects/itzehoe/8.jpg", "/projects/itzehoe/9.jpg", "/projects/itzehoe/10.jpg"
+        , "/projects/itzehoe/11.jpg", "/projects/itzehoe/12.jpg", "/projects/itzehoe/13.jpg"
+    ]
+  },
+  {
+    title: "München",
+    description: "Popis projektu München",
+    images: ["/projects/munchen/1.jpg", "/projects/munchen/2.jpg", "/projects/munchen/3.jpg", "/projects/munchen/4.jpg", "/projects/munchen/5.jpg"
+        , "/projects/munchen/6.jpg", "/projects/munchen/7.jpg"
+    ]
+  },
+];
+---
+
+<section id="projects" class="relative py-32 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 overflow-hidden">
+    <Container class="relative z-10">
+
+        <h2 class="text-4xl font-bold text-center text-white mb-6" data-aos="fade-up">Realizované projekty</h2>
+        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Ukážka vybraných projektov, na ktorých sme pracovali v posledných rokoch.
+        </p>
+
+        {projects.map((project, i) => (
+            <div class="mb-24" data-aos="fade-up" data-aos-delay={i * 100}>
+                <h3 class="text-2xl font-semibold text-primary mb-2">{project.title}</h3>
+                <p class="text-gray-400 mb-6">{project.description}</p>
+
+                <!-- MASONRY -->
+                <div class="columns-1 sm:columns-3 md:columns-4 gap-3 space-y-3">
+
+                    {project.images.map(img => (
+                        <div class="break-inside-avoid relative overflow-hidden rounded-xl shadow-lg group hover:scale-[1.01] transition">
+                            <img src={img} alt="Projekt" class="w-full max-w-[90%] mx-auto rounded-lg object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+        ))}
+    </Container>
+</section>
+
+

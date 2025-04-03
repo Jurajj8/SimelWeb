@@ -1,0 +1,15 @@
+---
+import HeroSection from '../../components/HeroSection.astro';
+import ProjectsSection from '../../components/ProjectsSection.astro';
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Simel s.r.o.">
+	<main class="w-full mb-40">
+		<HeroSection
+		  showButtons={true} 
+		  customClass="h-screen"
+		/>
+		<ProjectsSection />
+	</main>
+</Layout>
