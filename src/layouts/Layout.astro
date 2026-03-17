@@ -2,42 +2,166 @@
 import { AstroFont } from 'astro-font';
 import AppFooter from "../components/AppFooter.astro";
 import AppHeader from "../components/AppHeader.astro";
-import HeroSection from "../components/HeroSection.astro";
 import "./../tailus.css";
-
-import gsap from "gsap";
 
 const siteUrl = "https://simel-group.sk";
 
 import { translations } from "../locales.ts";
 
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+}
+
+const { title, description, keywords } = Astro.props;
+
 const currentPath = Astro.url.pathname;
-const currentLang = currentPath.split('/')[1] || 'sk';
+const pathLang = currentPath.split('/')[1] || '';
+const currentLang = ['sk', 'en', 'de'].includes(pathLang) ? pathLang : 'sk';
+const isRootPath = currentPath === '/' || currentPath === '';
 
 const t = translations[currentLang] || translations.sk;
+
+const metaDescription = description || t.seo?.index?.description || "SIMEL s.r.o. – spoľahlivé elektroinštalácie pre Slovensko a EÚ.";
+const metaKeywords = keywords || t.seo?.index?.keywords || "elektroinštalácie, SIMEL, elektromontáže";
+
+// Pre root path (SK homepage) canonical je siteUrl, inak siteUrl + path
+const canonicalUrl = isRootPath ? siteUrl : siteUrl + currentPath;
+
+const localeMap: Record<string, string> = { sk: "sk_SK", en: "en_US", de: "de_DE" };
+const currentLocale = localeMap[currentLang] || "sk_SK";
+
+const altLangs = ["sk", "en", "de"];
+
+// Zistíme page suffix (napr. "/aboutUs") z URL
+const pageSuffix = isRootPath ? '' : currentPath.replace(`/${currentLang}`, '');
+const isHomePage = isRootPath || pageSuffix === '' || pageSuffix === '/';
+
+// Generovanie alternate URL pre hreflang
+function getAlternateUrl(lang: string) {
+  if (isHomePage) {
+    return lang === 'sk' ? siteUrl : siteUrl + '/' + lang;
+  }
+  return siteUrl + '/' + lang + pageSuffix;
+}
+
+const pageName = currentPath.split('/').filter(Boolean).slice(1).join('/') || '';
+const breadcrumbItems = [];
+if (pageName) {
+  const pageLabel = pageName === 'aboutUs' ? t.aboutUs :
+                    pageName === 'contact' ? t.contact :
+                    pageName === 'gallery' ? t.gallery :
+                    pageName === 'projects' ? t.projects : pageName;
+  breadcrumbItems.push({ name: t.home, url: isRootPath ? siteUrl : siteUrl + '/' + currentLang });
+  breadcrumbItems.push({ name: pageLabel, url: canonicalUrl });
+}
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SIMEL s.r.o.",
+  "url": siteUrl,
+  "logo": siteUrl + "/222.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+421919285912",
+    "contactType": "customer service",
+    "areaServed": ["SK", "DE", "AT"],
+    "availableLanguage": ["Slovak", "English", "German"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Čierne 407",
+    "addressLocality": "Čierne",
+    "postalCode": "023 13",
+    "addressCountry": "SK"
+  }
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "Electrician",
+  "name": "SIMEL s.r.o.",
+  "url": siteUrl,
+  "logo": siteUrl + "/222.png",
+  "image": siteUrl + "/222.png",
+  "telephone": "+421919285912",
+  "email": "info.simelgroup@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Čierne 407",
+    "addressLocality": "Čierne",
+    "postalCode": "023 13",
+    "addressCountry": "SK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.49201,
+    "longitude": 18.82212
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Slovakia" },
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Austria" }
+  ],
+  "priceRange": "$$",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "07:00",
+    "closes": "16:00"
+  }
+};
+
+const breadcrumbSchema = breadcrumbItems.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+} : null;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang={currentLang} class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="keywords" content="elektroinštalácie, elektrina, elektromontáže, spoľahlivé elektroinštalácie, Simel, elektrické rozvody, moderné technológie, Slovensko, simel s.r.o." />
+        <meta name="keywords" content={metaKeywords} />
+        <meta name="description" content={metaDescription} />
 
-        <meta name="description" content="Simel s.r.o. | elektrikárska firma pre EU" />
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" async></script>
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" async></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <title>{title}</title>
 
-
-        <title>SIMEL s.r.o. | {t.title}</title>
-
-        <link rel="canonical" href={siteUrl} />
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#4f46e5" />
 
+        {altLangs.map(lang => (
+            <link rel="alternate" hreflang={lang} href={getAlternateUrl(lang)} />
+        ))}
+        <link rel="alternate" hreflang="x-default" href={getAlternateUrl('sk')} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={siteUrl + "/222.png"} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={currentLocale} />
+        {altLangs.filter(l => l !== currentLang).map(lang => (
+            <meta property="og:locale:alternate" content={localeMap[lang]} />
+        ))}
+        <meta property="og:site_name" content="SIMEL s.r.o." />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content={siteUrl + "/222.png"} />
 
         <AstroFont
             config={[
@@ -53,22 +177,11 @@ const t = translations[currentLang] || translations.sk;
             ]}
         />
 
-        <script type="application/ld+json">
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "SIMEL s.r.o.",
-            "url": "https://simel-group.sk",
-            "logo": "https://simel-group.sk/logo.png",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+421919285912",
-              "contactType": "customer service",
-              "areaServed": "SK",
-              "availableLanguage": "Slovak"
-            }
-          }
-          </script>
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+        {breadcrumbSchema && (
+            <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+        )}
     </head>
     <body class="bg-dark bg-gray-950 dark overflow-x-hidden">
         <AppHeader />
@@ -76,40 +189,22 @@ const t = translations[currentLang] || translations.sk;
         <AppFooter />
         <script>
             import AOS from "aos";
-            
+            import "aos/dist/aos.css";
+            import gsap from "gsap";
+
             document.addEventListener("DOMContentLoaded", function () {
-              if (window.gsap) {
-                gsap.to('body', { opacity: 1, duration: 1 });
-  
-                // ✅ Animácia celej Hero sekcie
-                gsap.from('#home', { opacity: 0, y: 30, duration: 1 });
-  
-                // ✅ Animácia prvkov v Hero sekcii (postupne)
-                gsap.from('#home h1', { y: 40, opacity: 0, duration: 1, delay: 0.3 });
-                gsap.from('#home p', { y: 40, opacity: 0, duration: 1, delay: 0.5 });
-  
-                // ✅ Animácia tlačidiel
-                gsap.from('#home a', { y: 40, opacity: 0, duration: 1, delay: 0.7, stagger: 0.2 });
-  
-      //           // ✅ Animácia textových blokov (efektívne riešenia, skúsenosti)
-      //           gsap.from('#home div.text-center', { y: 40, opacity: 0, duration: 1, delay: 0.9, stagger: 0.2 });
-  
-      //           // ✅ Animácia pozadia
-      //           gsap.from('#home div[aria-hidden="true"]', { opacity: 0, scale: 1.1, duration: 1.5, delay: 0.2 });
+              gsap.to('body', { opacity: 1, duration: 1 });
 
-      // // ✅ Animácia ikon vo výhodách (ak máš ikony nad textami)
-      // gsap.from('#home div.relative', { y: 20, opacity: 0, duration: 1, delay: 1, stagger: 0.2 });
-
-              } else {
-                console.error("GSAP nenájdený!");
-              }
+              gsap.from('#home', { opacity: 0, y: 30, duration: 1 });
+              gsap.from('#home h1', { y: 40, opacity: 0, duration: 1, delay: 0.3 });
+              gsap.from('#home p', { y: 40, opacity: 0, duration: 1, delay: 0.5 });
+              gsap.from('#home a', { y: 40, opacity: 0, duration: 1, delay: 0.7, stagger: 0.2 });
 
               AOS.init({
-                duration: 800, // Trvanie animácie v ms
+                duration: 800,
                 easing: "ease-in-out",
-                once: false, // Animácia sa zopakuje pri každom skrolovaní
+                once: false,
               });
-
             });
           </script>
     </body>

@@ -116,6 +116,34 @@ export const translations = {
       heroContactSubtitle: "Sme tu pre vás",
       heroContactDescription: "Ak máte akékoľvek otázky alebo máte záujem o spoluprácu s nami, neváhajte nás kontaktovať prostredníctvom formulára, mailom alebo telefonicky.",
       projects: "Projekty",
+
+      seo: {
+        index: {
+          title: "Elektroinštalácie a elektromontáže | SIMEL s.r.o.",
+          description: "SIMEL s.r.o. – spoľahlivé elektroinštalácie, elektromontáže a elektrické rozvody pre Slovensko a EÚ. Odborné služby od návrhu po realizáciu.",
+          keywords: "elektroinštalácie, elektromontáže, elektrické rozvody, SIMEL, elektrikár Slovensko, elektroinštalačná firma, bleskozvody, revízie",
+        },
+        aboutUs: {
+          title: "O nás – Náš tím | SIMEL s.r.o.",
+          description: "Spoznajte tím SIMEL s.r.o. – skúsení elektrikári so zameraním na kvalitu, bezpečnosť a moderné technológie v elektroinštaláciách.",
+          keywords: "SIMEL tím, elektrikári, o nás, skúsenosti elektroinštalácie, profesionálni elektrikári",
+        },
+        contact: {
+          title: "Kontakt | SIMEL s.r.o.",
+          description: "Kontaktujte SIMEL s.r.o. pre elektroinštalácie a elektromontáže. Telefón: +421 919 285 912, email: info.simelgroup@gmail.com.",
+          keywords: "kontakt SIMEL, elektroinštalácie kontakt, elektrikár kontakt, SIMEL telefón, SIMEL email",
+        },
+        gallery: {
+          title: "Galéria prác | SIMEL s.r.o.",
+          description: "Prezrite si galériu realizovaných elektroinštalačných prác spoločnosti SIMEL s.r.o. v Slovensku aj zahraničí.",
+          keywords: "galéria elektroinštalácie, realizácie SIMEL, elektroinštalačné práce fotky, referenčné projekty",
+        },
+        projects: {
+          title: "Realizované projekty | SIMEL s.r.o.",
+          description: "Pozrite si naše realizované projekty elektroinštalácií v Nemecku a na Slovensku – Dortmund, Düsseldorf, Essen, München a ďalšie.",
+          keywords: "projekty elektroinštalácie, realizácie Nemecko, SIMEL projekty, elektromontáže zahraničie",
+        },
+      },
     },
     en: {
       home: "Home",
@@ -233,6 +261,34 @@ export const translations = {
       heroContactSubtitle: "We are here for you",
       heroContactDescription: "If you have any questions or are interested in working with us, please do not hesitate to contact us via the form, email or phone.",
       projects: "Projects",
+
+      seo: {
+        index: {
+          title: "Electrical Installations & Assembly | SIMEL s.r.o.",
+          description: "SIMEL s.r.o. – reliable electrical installations, wiring and assembly services for Slovakia and the EU. Professional services from design to implementation.",
+          keywords: "electrical installations, wiring, electrical assembly, SIMEL, electrician Slovakia, electrical company EU, lightning protection, inspections",
+        },
+        aboutUs: {
+          title: "About Us – Our Team | SIMEL s.r.o.",
+          description: "Meet the SIMEL s.r.o. team – experienced electricians focused on quality, safety and modern technology in electrical installations.",
+          keywords: "SIMEL team, electricians, about us, electrical installation experience, professional electricians",
+        },
+        contact: {
+          title: "Contact | SIMEL s.r.o.",
+          description: "Contact SIMEL s.r.o. for electrical installations and assembly. Phone: +421 919 285 912, email: info.simelgroup@gmail.com.",
+          keywords: "contact SIMEL, electrical installations contact, electrician contact, SIMEL phone, SIMEL email",
+        },
+        gallery: {
+          title: "Work Gallery | SIMEL s.r.o.",
+          description: "Browse the gallery of completed electrical installation projects by SIMEL s.r.o. in Slovakia and abroad.",
+          keywords: "electrical gallery, SIMEL projects, electrical work photos, reference projects",
+        },
+        projects: {
+          title: "Completed Projects | SIMEL s.r.o.",
+          description: "View our completed electrical installation projects in Germany and Slovakia – Dortmund, Düsseldorf, Essen, Munich and more.",
+          keywords: "electrical projects, installations Germany, SIMEL projects, electrical assembly abroad",
+        },
+      },
     },
     de: {
       home: "Startseite",
@@ -350,6 +406,34 @@ export const translations = {
       heroContactSubtitle: "Wir sind für Sie da",
       heroContactDescription: "Wenn Sie Fragen haben oder Interesse an einer Zusammenarbeit haben, können Sie uns gerne über das Formular, per E-Mail oder Telefon kontaktieren.",
       projects: "Projekte",
+
+      seo: {
+        index: {
+          title: "Elektroinstallationen & Montage | SIMEL s.r.o.",
+          description: "SIMEL s.r.o. – zuverlässige Elektroinstallationen, Verkabelung und Montageservice für die Slowakei und die EU. Professionelle Dienstleistungen von der Planung bis zur Umsetzung.",
+          keywords: "Elektroinstallationen, Elektromontage, elektrische Verkabelung, SIMEL, Elektriker Slowakei, Elektrofirma EU, Blitzschutz, Revisionen",
+        },
+        aboutUs: {
+          title: "Über uns – Unser Team | SIMEL s.r.o.",
+          description: "Lernen Sie das Team von SIMEL s.r.o. kennen – erfahrene Elektriker mit Fokus auf Qualität, Sicherheit und moderne Technologien.",
+          keywords: "SIMEL Team, Elektriker, über uns, Erfahrung Elektroinstallation, professionelle Elektriker",
+        },
+        contact: {
+          title: "Kontakt | SIMEL s.r.o.",
+          description: "Kontaktieren Sie SIMEL s.r.o. für Elektroinstallationen und Montage. Telefon: +421 919 285 912, E-Mail: info.simelgroup@gmail.com.",
+          keywords: "Kontakt SIMEL, Elektroinstallation Kontakt, Elektriker Kontakt, SIMEL Telefon, SIMEL E-Mail",
+        },
+        gallery: {
+          title: "Arbeitsgalerie | SIMEL s.r.o.",
+          description: "Durchstöbern Sie die Galerie abgeschlossener Elektroinstallationsprojekte von SIMEL s.r.o. in der Slowakei und im Ausland.",
+          keywords: "Elektro Galerie, SIMEL Projekte, Elektroarbeiten Fotos, Referenzprojekte",
+        },
+        projects: {
+          title: "Abgeschlossene Projekte | SIMEL s.r.o.",
+          description: "Sehen Sie unsere abgeschlossenen Elektroinstallationsprojekte in Deutschland und der Slowakei – Dortmund, Düsseldorf, Essen, München und mehr.",
+          keywords: "Elektroprojekte, Installationen Deutschland, SIMEL Projekte, Elektromontage Ausland",
+        },
+      },
     }
   };
   

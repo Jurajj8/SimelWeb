@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs ls:*)",
+      "Bash(wc -l /g/Webstranky/Simel/SimelWeb/src/components/*.astro)",
+      "Bash(npm run:*)",
+      "Bash(tr '>' '>\\\\n')"
+    ]
+  }
+}

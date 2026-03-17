@@ -4,7 +4,9 @@ import { translations } from "../locales.ts";
 
 
 const currentPath = Astro.url.pathname;
-const currentLang = currentPath.split('/')[1] || 'sk';
+const pathLang = currentPath.split('/')[1] || '';
+const currentLang = ['sk', 'en', 'de'].includes(pathLang) ? pathLang : 'sk';
+const isRootPath = currentPath === '/' || currentPath === '';
 const t = translations[currentLang] || translations.sk;
 
 const languages = [
@@ -13,10 +15,15 @@ const languages = [
   { code: "de", label: "Deutsch" }
 ];
 
+const pageSuffix = isRootPath ? '' : currentPath.replace(`/${currentLang}`, '');
+const isHomePage = isRootPath || pageSuffix === '' || pageSuffix === '/';
+
 const languageLinks = languages.map(lang => ({
   code: lang.code,
   label: lang.label,
-  url: currentPath.replace(`/${currentLang}`, `/${lang.code}`)
+  url: isHomePage
+    ? (lang.code === 'sk' ? '/' : `/${lang.code}`)
+    : `/${lang.code}${pageSuffix}`
 }));
 ---
 

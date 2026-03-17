@@ -2,12 +2,15 @@
 import HeroSection from '../../components/HeroSection.astro';
 import ProjectsSection from '../../components/ProjectsSection.astro';
 import Layout from '../../layouts/Layout.astro';
+import { translations } from '../../locales.ts';
+
+const t = translations.de;
 ---
 
-<Layout title="Simel s.r.o.">
+<Layout title={t.seo.projects.title} description={t.seo.projects.description} keywords={t.seo.projects.keywords}>
 	<main class="w-full mb-40">
 		<HeroSection
-		  showButtons={true} 
+		  showButtons={true}
 		  customClass="h-screen"
 		/>
 		<ProjectsSection />

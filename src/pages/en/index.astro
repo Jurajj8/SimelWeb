@@ -4,13 +4,15 @@ import Features from '../../components/Features.astro';
 import HeroSection from '../../components/HeroSection.astro';
 import Layout from '../../layouts/Layout.astro';
 import CallToAction from '../../components/CallToAction.astro';
-import AboutUs from '../../components/AboutUs.astro';
+import { translations } from '../../locales.ts';
+
+const t = translations.en;
 ---
 
-<Layout title="Simel s.r.o.">
+<Layout title={t.seo.index.title} description={t.seo.index.description} keywords={t.seo.index.keywords}>
 	<main class="w-full mb-40">
-		<HeroSection 
-		  showButtons={true} 
+		<HeroSection
+		  showButtons={true}
 		  customClass="h-screen"
 		/>
 		<Features/>

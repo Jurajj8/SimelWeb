@@ -1,5 +1,10 @@
 ---
 import Container from "./Container.astro";
+import { translations } from "../locales.ts";
+
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'sk';
+const t = translations[currentLang] || translations.sk;
 
 const projects = [
   {
@@ -49,9 +54,9 @@ const projects = [
 <section id="projects" class="relative py-32 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 overflow-hidden">
     <Container class="relative z-10">
 
-        <h2 class="text-4xl font-bold text-center text-white mb-6" data-aos="fade-up">Realizované projekty</h2>
+        <h2 class="text-4xl font-bold text-center text-white mb-6" data-aos="fade-up">{t.projects}</h2>
         <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Ukážka vybraných projektov, na ktorých sme pracovali v posledných rokoch.
+            {t.seo?.projects?.description || "Ukážka vybraných projektov, na ktorých sme pracovali v posledných rokoch."}
         </p>
 
         {projects.map((project, i) => (
@@ -64,7 +69,7 @@ const projects = [
 
                     {project.images.map(img => (
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl shadow-lg group hover:scale-[1.01] transition">
-                            <img src={img} alt="Projekt" class="w-full max-w-[90%] mx-auto rounded-lg object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <img src={img} alt={`${project.title} - SIMEL s.r.o.`} class="w-full max-w-[90%] mx-auto rounded-lg object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" />
                             <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                         </div>
                     ))}

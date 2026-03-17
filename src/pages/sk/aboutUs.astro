@@ -2,9 +2,12 @@
 import HeroSection from '../../components/HeroSection.astro';
 import Layout from '../../layouts/Layout.astro';
 import AboutUsSection from '../../components/AboutUsSection.astro';
+import { translations } from '../../locales.ts';
+
+const t = translations.sk;
 ---
 
-<Layout title="Simel s.r.o. |Contact">
+<Layout title={t.seo.aboutUs.title} description={t.seo.aboutUs.description} keywords={t.seo.aboutUs.keywords}>
 	<main class="w-full mb-40">
         <AboutUsSection>
 	</main>

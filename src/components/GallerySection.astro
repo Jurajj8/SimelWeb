@@ -1,26 +1,33 @@
 ---
 import Container from "./Container.astro";
+import { translations } from "../locales.ts";
+
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'sk';
+const t = translations[currentLang] || translations.sk;
 
 const images = [
-  "/M1.jpg",
-  "/M2.jpg"
+  { src: "/M1.jpg", alt: "SIMEL s.r.o. - elektroinštalačné práce 1" },
+  { src: "/M2.jpg", alt: "SIMEL s.r.o. - elektroinštalačné práce 2" },
 ];
 ---
 
 <Container>
   <section id="gallery" class="py-16">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-white mb-12">Galéria</h2>
+      <h2 class="text-4xl font-bold text-center text-white mb-12">{t.gallery}</h2>
 
       <!-- Galéria Grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {images.map((image) => (
           <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
             <img
-              src={image}
-              alt="Galéria obrázok"
+              src={image.src}
+              alt={image.alt}
               class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-              data-src={image} 
+              loading="lazy"
+              decoding="async"
+              data-src={image.src}
             />
           </div>
         ))}

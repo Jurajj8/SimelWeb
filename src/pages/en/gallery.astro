@@ -1,13 +1,16 @@
 ---
 import HeroSection from '../../components/HeroSection.astro';
 import Layout from '../../layouts/Layout.astro';
-import GallerySection from '../../components/GallerySection.astro'
+import GallerySection from '../../components/GallerySection.astro';
+import { translations } from '../../locales.ts';
+
+const t = translations.en;
 ---
 
-<Layout title="Simel s.r.o.">
+<Layout title={t.seo.gallery.title} description={t.seo.gallery.description} keywords={t.seo.gallery.keywords}>
 	<main class="w-full mb-40">
-		<HeroSection 
-            showButtons={false} 
+		<HeroSection
+            showButtons={false}
         />
 		<GallerySection />
 	</main>

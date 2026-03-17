@@ -3,10 +3,14 @@ import Container from "./Container.astro";
 import { translations } from "../locales.ts";
 
 const currentPath = Astro.url.pathname;
-const currentLang = currentPath.split('/')[1] || 'sk';
+const pathLang = currentPath.split('/')[1] || '';
+const currentLang = ['sk', 'en', 'de'].includes(pathLang) ? pathLang : 'sk';
 const t = translations[currentLang] || translations.sk;
 
-const createLocalizedPath = (path) => `/${currentLang}${path === "/" ? "" : path}`;
+const createLocalizedPath = (path) => {
+  if (currentLang === 'sk' && path === '/') return '/';
+  return `/${currentLang}${path === "/" ? "" : path}`;
+};
 
 const languages = [
   { code: "sk", label: "Slovensky" },

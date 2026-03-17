@@ -6,7 +6,17 @@ export default defineConfig({
   site: "https://simel-group.sk",
   base: '/', // ✅ Správna relatívna cesta pre hosting
   output: "static", // ✅ Vynúti statický výstup
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    i18n: {
+      defaultLocale: 'sk',
+      locales: {
+        sk: 'sk',
+        en: 'en',
+        de: 'de',
+      },
+    },
+    filter: (page) => !page.includes('/sitemap'),
+  })],
   trailingSlash: 'never',
   
   vite: {

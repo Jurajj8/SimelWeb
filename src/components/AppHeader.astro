@@ -3,10 +3,15 @@ import Container from "./Container.astro";
 import { translations } from "../locales.ts";
 
 const currentPath = Astro.url.pathname;
-const currentLang = currentPath.split('/')[1] || 'sk';
+const pathLang = currentPath.split('/')[1] || '';
+const currentLang = ['sk', 'en', 'de'].includes(pathLang) ? pathLang : 'sk';
+const isRootPath = currentPath === '/' || currentPath === '';
 const t = translations[currentLang] || translations.sk;
 
-const createLocalizedPath = (path) => `/${currentLang}${path === "/" ? "" : path}`;
+const createLocalizedPath = (path) => {
+  if (currentLang === 'sk' && path === '/') return '/';
+  return `/${currentLang}${path === "/" ? "" : path}`;
+};
 
 const languages = [
   { code: "sk", label: "Slovensky" },
@@ -14,10 +19,15 @@ const languages = [
   { code: "de", label: "Deutsch" }
 ];
 
+const pageSuffix = isRootPath ? '' : currentPath.replace(`/${currentLang}`, '');
+const isHomePage = isRootPath || pageSuffix === '' || pageSuffix === '/';
+
 const languageLinks = languages.map(lang => ({
   code: lang.code,
   label: lang.label,
-  url: currentPath.replace(`/${currentLang}`, `/${lang.code}`)
+  url: isHomePage
+    ? (lang.code === 'sk' ? '/' : `/${lang.code}`)
+    : `/${lang.code}${pageSuffix}`
 }));
 ---
 
@@ -27,7 +37,7 @@ const languageLinks = languages.map(lang => ({
       <div class="relative flex flex-wrap items-center justify-between gap-6 py-3 md:gap-0 md:py-4">
         <div class="relative z-20 flex w-full justify-between md:px-0 lg:w-fit">
           <a href={createLocalizedPath("/")} aria-label="logo" class="flex items-center space-x-2">
-            <img src="/2.png" alt="Simel s.r.o. logo" class="h-20 w-auto">
+            <img src="/2.png" alt="SIMEL s.r.o. - elektroinštalácie" class="h-20 w-auto" width="80" height="80">
           </a>
 
           <!-- Tlačidlo pre mobilné menu -->
