@@ -144,6 +144,14 @@ export const translations = {
           keywords: "projekty elektroinštalácie, realizácie Nemecko, SIMEL projekty, elektromontáže zahraničie",
         },
       },
+      projectDescriptions: {
+        dortmund: "Komplexné elektroinštalačné práce v bytovom komplexe v Dortmunde. Realizácia silnoprúdových a slaboprúdových rozvodov, montáž rozvádzačov, elektromerových skríň a systémov ochrany pred úrazom elektrickým prúdom.",
+        dusseldorf: "Elektroinštalácie v administratívnej budove v Düsseldorfe. Pokládka dátovej a napájacej kabeláže, montáž svetelnej techniky LED, napájacích systémov a zásuvkových obvodov pre komerčné priestory.",
+        erftstadt: "Priemyselné elektroinštalácie vo výrobnej hale v Erftstadte. Realizácia výkonných elektrických rozvodov 400 V, montáž strojových prípojok, istiacich prvkov a bezpečnostných systémov núdzového zastavenia.",
+        essen: "Elektroinštalačné práce v obytných bytových domoch v Essene. Kompletná rekonštrukcia elektroinštalácie vrátane výmeny rozvádzačov, pokládky nových obvodov, zásuviek a moderného osvetlenia.",
+        itzehoe: "Rozsiahla rekonštrukcia a modernizácia elektroinštalácie v obchodnom centre v Itzeho. Projekt zahŕňal pokládku kabeláže, inštaláciu núdzového osvetlenia, systémov EPS a inteligentného riadenia budovy BMS.",
+        munchen: "Elektroinštalácie v luxusných rezidenčných apartmánoch v Mníchove. Montáž inteligentnej elektroinštalácie KNX, systémov smart home, rekuperácie a energeticky úsporného LED osvetlenia.",
+      },
     },
     en: {
       home: "Home",
@@ -289,6 +297,14 @@ export const translations = {
           keywords: "electrical projects, installations Germany, SIMEL projects, electrical assembly abroad",
         },
       },
+      projectDescriptions: {
+        dortmund: "Comprehensive electrical installation works in a residential complex in Dortmund. Implementation of power and low-voltage wiring, installation of switchboards, metering cabinets and electrical safety protection systems.",
+        dusseldorf: "Electrical installations in a commercial office building in Düsseldorf. Data and power cable laying, LED lighting installation, power supply systems and socket circuits for commercial premises.",
+        erftstadt: "Industrial electrical installations in a production hall in Erftstadt. Implementation of 400 V power distribution, machine connections, protective devices and emergency stop safety systems.",
+        essen: "Electrical installation works in residential apartment buildings in Essen. Full rewiring including distribution board replacement, new circuits, sockets and modern LED lighting throughout.",
+        itzehoe: "Extensive electrical installation renovation in a retail centre in Itzehoe. The project included cable laying, emergency lighting, fire detection systems and intelligent building management (BMS) integration.",
+        munchen: "Electrical installations in luxury residential apartments in Munich. Installation of KNX smart wiring, smart home systems, heat recovery control wiring and energy-efficient LED lighting.",
+      },
     },
     de: {
       home: "Startseite",
@@ -399,8 +415,8 @@ export const translations = {
       contactEmail: "Email",
       contactMessage: "Nachricht",
       contactSend: "Abschicken",
-      contactThank: "Thank you",
-      contactThankYou: "Thank you for your message. We will get back to you as soon as possible.",
+      contactThank: "Danke",
+      contactThankYou: "Vielen Dank für Ihre Nachricht. Wir werden uns so schnell wie möglich bei Ihnen melden.",
 
       heroContactTitle: "Kontakt",
       heroContactSubtitle: "Wir sind für Sie da",
@@ -433,6 +449,14 @@ export const translations = {
           description: "Sehen Sie unsere abgeschlossenen Elektroinstallationsprojekte in Deutschland und der Slowakei – Dortmund, Düsseldorf, Essen, München und mehr.",
           keywords: "Elektroprojekte, Installationen Deutschland, SIMEL Projekte, Elektromontage Ausland",
         },
+      },
+      projectDescriptions: {
+        dortmund: "Umfassende Elektroinstallationsarbeiten in einem Wohnkomplex in Dortmund. Verlegung von Stark- und Schwachstromleitungen, Montage von Schaltanlagen, Zählerschränken und Schutzeinrichtungen.",
+        dusseldorf: "Elektroinstallationen in einem Bürogebäude in Düsseldorf. Daten- und Stromkabelverlegung, Installation von LED-Beleuchtungssystemen, Energieversorgungsanlagen und Steckdosenkreisen für Gewerbeflächen.",
+        erftstadt: "Industrielle Elektroinstallationen in einer Produktionshalle in Erftstadt. Realisierung von 400-V-Starkstromverteilungen, Maschinenabschlüssen, Schutzeinrichtungen und Not-Aus-Sicherheitssystemen.",
+        essen: "Elektroinstallationsarbeiten in Wohngebäuden in Essen. Vollständige Sanierung der Elektroinstallation einschließlich Verteilertausch, neuer Stromkreise, Steckdosen und moderner LED-Beleuchtung.",
+        itzehoe: "Umfangreiche Renovierung der Elektroinstallation in einem Einkaufszentrum in Itzehoe. Das Projekt umfasste Kabelverlegung, Notbeleuchtung, Brandmeldeanlagen und intelligentes Gebäudemanagementsystem (BMS).",
+        munchen: "Elektroinstallationen in Luxuswohnungen in München. Montage von KNX-Smart-Home-Systemen, intelligenter Verkabelung, Lüftungssteuerung und energieeffizienter LED-Beleuchtungstechnik.",
       },
     }
   };

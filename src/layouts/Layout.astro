@@ -4,7 +4,7 @@ import AppFooter from "../components/AppFooter.astro";
 import AppHeader from "../components/AppHeader.astro";
 import "./../tailus.css";
 
-const siteUrl = "https://simel-group.sk";
+const siteUrl = "https://www.simel-group.sk";
 
 import { translations } from "../locales.ts";
 
@@ -12,9 +12,10 @@ interface Props {
   title: string;
   description?: string;
   keywords?: string;
+  robots?: string;
 }
 
-const { title, description, keywords } = Astro.props;
+const { title, description, keywords, robots } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 const pathLang = currentPath.split('/')[1] || '';
@@ -26,8 +27,8 @@ const t = translations[currentLang] || translations.sk;
 const metaDescription = description || t.seo?.index?.description || "SIMEL s.r.o. – spoľahlivé elektroinštalácie pre Slovensko a EÚ.";
 const metaKeywords = keywords || t.seo?.index?.keywords || "elektroinštalácie, SIMEL, elektromontáže";
 
-// Pre root path (SK homepage) canonical je siteUrl, inak siteUrl + path
-const canonicalUrl = isRootPath ? siteUrl : siteUrl + currentPath;
+// Pre root path (SK homepage) canonical je siteUrl/, inak siteUrl + path
+const canonicalUrl = isRootPath ? siteUrl + '/' : siteUrl + currentPath;
 
 const localeMap: Record<string, string> = { sk: "sk_SK", en: "en_US", de: "de_DE" };
 const currentLocale = localeMap[currentLang] || "sk_SK";
@@ -38,10 +39,10 @@ const altLangs = ["sk", "en", "de"];
 const pageSuffix = isRootPath ? '' : currentPath.replace(`/${currentLang}`, '');
 const isHomePage = isRootPath || pageSuffix === '' || pageSuffix === '/';
 
-// Generovanie alternate URL pre hreflang
+// Generovanie alternate URL pre hreflang — každá stránka musí mať self-reference
 function getAlternateUrl(lang: string) {
   if (isHomePage) {
-    return lang === 'sk' ? siteUrl : siteUrl + '/' + lang;
+    return lang === 'sk' ? siteUrl + '/' : siteUrl + '/' + lang + '/';
   }
   return siteUrl + '/' + lang + pageSuffix;
 }
@@ -53,7 +54,7 @@ if (pageName) {
                     pageName === 'contact' ? t.contact :
                     pageName === 'gallery' ? t.gallery :
                     pageName === 'projects' ? t.projects : pageName;
-  breadcrumbItems.push({ name: t.home, url: isRootPath ? siteUrl : siteUrl + '/' + currentLang });
+  breadcrumbItems.push({ name: t.home, url: isRootPath ? siteUrl + '/' : siteUrl + '/' + currentLang + '/' });
   breadcrumbItems.push({ name: pageLabel, url: canonicalUrl });
 }
 
@@ -134,6 +135,7 @@ const breadcrumbSchema = breadcrumbItems.length > 0 ? {
         <meta name="generator" content={Astro.generator} />
         <meta name="keywords" content={metaKeywords} />
         <meta name="description" content={metaDescription} />
+        {robots && <meta name="robots" content={robots} />}
 
         <title>{title}</title>
 

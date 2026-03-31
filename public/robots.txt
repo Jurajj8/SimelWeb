@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /resources/
 
-Sitemap: https://simel-group.sk/sitemap-index.xml
+Sitemap: https://www.simel-group.sk/sitemap-index.xml

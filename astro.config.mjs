@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: "https://simel-group.sk",
+  site: "https://www.simel-group.sk",
   base: '/', // ✅ Správna relatívna cesta pre hosting
   output: "static", // ✅ Vynúti statický výstup
   integrations: [sitemap({
@@ -15,9 +15,9 @@ export default defineConfig({
         de: 'de',
       },
     },
-    filter: (page) => !page.includes('/sitemap'),
+    filter: (page) => !page.includes('/sitemap') && page !== 'https://www.simel-group.sk/sk/',
   })],
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   
   vite: {
     plugins: [tailwindcss()],

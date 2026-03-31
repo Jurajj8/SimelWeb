@@ -2,14 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="404 - Stránka nenájdená | SIMEL s.r.o." description="Táto stránka neexistuje." keywords="404, stránka nenájdená">
+<Layout title="404 - Stránka nenájdená | SIMEL s.r.o." description="Táto stránka neexistuje." keywords="404, stránka nenájdená" robots="noindex, nofollow">
 	<main class="w-full min-h-screen flex items-center justify-center">
 		<div class="text-center px-6">
 			<h1 class="text-8xl font-bold text-white mb-4">404</h1>
 			<p class="text-xl text-gray-400 mb-8">Stránka nenájdená / Page not found / Seite nicht gefunden</p>
-			<meta name="robots" content="noindex" />
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="/sk/" class="px-6 py-3 bg-primary text-white rounded-lg hover:opacity-90 transition">
+				<a href="/" class="px-6 py-3 bg-primary text-white rounded-lg hover:opacity-90 transition">
 					Domov (SK)
 				</a>
 				<a href="/en/" class="px-6 py-3 bg-gray-700 text-white rounded-lg hover:opacity-90 transition">
